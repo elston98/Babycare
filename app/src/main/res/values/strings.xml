@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">BabyCare</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_second">second</string>
+    <string name="title_activity_third">third</string>
+    <string name="title_activity_fourth">fourth</string>
+    <string name="title_activity_fifth">fifth</string>
+    <string name="title_activity_sixth">sixth</string>
+    <string name="first">If you haven\'t spent a lot of time around newborns, their fragility may be intimidating. Here are a few basics to remember:</string>
+</resources>

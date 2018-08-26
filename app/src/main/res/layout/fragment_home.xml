@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baby" />
+
+    <ImageButton
+        android:id="@+id/ib1"
+        android:layout_width="121dp"
+        android:layout_height="104dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/ib3"
+        app:layout_constraintEnd_toStartOf="@+id/ib2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baby1" />
+
+    <ImageButton
+        android:id="@+id/ib2"
+        android:layout_width="121dp"
+        android:layout_height="104dp"
+        app:layout_constraintBottom_toTopOf="@+id/ib4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ib1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@color/colorAccent" />
+
+    <ImageButton
+        android:id="@+id/ib3"
+        android:layout_width="121dp"
+        android:layout_height="104dp"
+        app:layout_constraintBottom_toTopOf="@+id/ib5"
+        app:layout_constraintEnd_toStartOf="@+id/ib4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ib1"
+        app:srcCompat="@color/colorAccent" />
+
+    <ImageButton
+        android:id="@+id/ib4"
+        android:layout_width="121dp"
+        android:layout_height="104dp"
+        app:layout_constraintBottom_toTopOf="@+id/ib6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ib3"
+        app:layout_constraintTop_toBottomOf="@+id/ib2"
+        app:srcCompat="@color/colorAccent" />
+
+    <ImageButton
+        android:id="@+id/ib5"
+        android:layout_width="121dp"
+        android:layout_height="104dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ib6"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ib3"
+        app:srcCompat="@color/colorAccent" />
+
+    <ImageButton
+        android:id="@+id/ib6"
+        android:layout_width="121dp"
+        android:layout_height="104dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ib5"
+        app:layout_constraintTop_toBottomOf="@+id/ib4"
+        app:srcCompat="@color/colorAccent" />
+</android.support.constraint.ConstraintLayout>

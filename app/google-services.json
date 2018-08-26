@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "661697318728",
+    "firebase_url": "https://babycare-6c48a.firebaseio.com",
+    "project_id": "babycare-6c48a",
+    "storage_bucket": "babycare-6c48a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:661697318728:android:7788fff221ab4c34",
+        "android_client_info": {
+          "package_name": "com.wilson.elston.babycare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "661697318728-4kthh415vc5oof8q98iq5kc07sr6qu9t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wilson.elston.babycare",
+            "certificate_hash": "c9630ec6aa8f5e5cdea0d19e4a11418d4813d469"
+          }
+        },
+        {
+          "client_id": "661697318728-lau0qgmsk6hqgd0qhfktsoqop7t4utf7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiud7rfPtT3Uo0EoTA_TqhqkKI4oIS-l4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "661697318728-lau0qgmsk6hqgd0qhfktsoqop7t4utf7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
