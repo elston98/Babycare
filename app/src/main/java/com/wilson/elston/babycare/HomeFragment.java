@@ -80,7 +80,7 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
 
         final View v = inflater.inflate(R.layout.fragment_home, container, false);
-        ib1 = v.findViewById(R.id.ib1);
+       /* ib1 = v.findViewById(R.id.ib1);
         ib2=v.findViewById(R.id.ib2);
         ib3=v.findViewById(R.id.ib3);
         ib4=v.findViewById(R.id.ib4);
@@ -129,7 +129,7 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
+*/
 
         return v;
 
