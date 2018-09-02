@@ -5,8 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -15,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
@@ -94,21 +99,34 @@ public class PhotoDiaryFragment extends Fragment {
        sref= FirebaseStorage.getInstance().getReference();
         setHasOptionsMenu(true);
         dialog=new ProgressDialog(getActivity());
-        storage=v.findViewById(R.id.storage);
-        storage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(Intent.ACTION_PICK);
-                intent.setType("image/*");
-                startActivityForResult(intent, GALLERY);
-            }
-        });
+
         ib=v.findViewById(R.id.is);
         Glide.with(getContext()).load(sref.getDownloadUrl()).into(ib);
+        
+        setHasOptionsMenu(true);
+
+        
         return v;
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
+        menuInflater.inflate(R.menu.menu, menu);
+        super.onCreateOptionsMenu(menu, menuInflater);
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.photo_upload:
+                Intent intent=new Intent(Intent.ACTION_PICK);
+                intent.setType("image/*");
+                startActivityForResult(intent, GALLERY);
+
+
+        }
+        return  true;
+    }
 
     public void onActivityResult(int requestcode, int resultcode, Intent data)
     {
@@ -134,6 +152,12 @@ public class PhotoDiaryFragment extends Fragment {
                     dialog.dismiss();
 
                 }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(getActivity(),"Failed",Toast.LENGTH_LONG).show();
+                    dialog.dismiss();
+                }
             });
             FirebaseDatabase.getInstance().getReference().child("Photos").child(id).push().setValue(link);
 
@@ -145,6 +169,7 @@ public class PhotoDiaryFragment extends Fragment {
 
 
     }
+
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
@@ -168,6 +193,8 @@ public class PhotoDiaryFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
+
+
 
     /**
      * This interface must be implemented by activities that contain this
