@@ -3,72 +3,113 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="450dp">
+    android:layout_height="match_parent">
 
 
-    <ImageButton
-        android:id="@+id/ib6"
-        android:layout_width="119dp"
-        android:layout_height="98dp"
+    <ScrollView
+        android:id="@+id/scrollView4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ib5"
-        app:layout_constraintTop_toBottomOf="@+id/ib4"
-        app:srcCompat="@drawable/ic_blog" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageButton
-        android:id="@+id/ib5"
-        android:layout_width="119dp"
-        android:layout_height="98dp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="125dp"
+        android:background="@android:color/holo_purple"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/scrollView4"
+        app:layout_constraintStart_toStartOf="@+id/scrollView4"
+        app:layout_constraintTop_toTopOf="@+id/scrollView4">
+
+        <ImageButton
+            android:id="@+id/ib1"
+            style="@android:style/Theme.Translucent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/fui_transparent"
+            android:scaleType="centerInside"
+            android:tint="@color/fui_transparent"
+            app:srcCompat="@drawable/baby1"
+            tools:targetApi="@android:drawable/screen_background_light_transparent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
+        android:layout_height="125dp"
+        android:background="@android:color/holo_red_light"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/scrollView4"
+        app:layout_constraintStart_toStartOf="@+id/scrollView4"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <ImageButton
+            android:id="@+id/ib2"
+            style="@android:style/Theme.Translucent"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:backgroundTint="@color/fui_transparent"
+            android:scaleType="fitCenter"
+            android:tint="@color/fui_transparent"
+            app:srcCompat="@drawable/baby1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="0dp"
+        android:layout_height="125dp"
+        android:background="@android:color/holo_orange_light"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/scrollView4"
+        app:layout_constraintStart_toStartOf="@+id/scrollView4"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <ImageButton
+            android:id="@+id/ib3"
+            style="@style/FirebaseUI.Transparent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/fui_transparent"
+            android:scaleType="centerInside"
+            android:tint="@color/fui_transparent"
+            app:srcCompat="@drawable/baby1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="125dp"
+        android:background="@android:color/holo_blue_light"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/ib6"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ib3"
-        app:srcCompat="@drawable/ic_blog" />
+        app:layout_constraintEnd_toEndOf="@+id/scrollView4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/scrollView4"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintVertical_bias="0.0">
 
-    <ImageButton
-        android:id="@+id/ib4"
-        android:layout_width="119dp"
-        android:layout_height="98dp"
-        app:layout_constraintBottom_toTopOf="@+id/ib6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ib3"
-        app:layout_constraintTop_toBottomOf="@+id/ib2"
-        app:srcCompat="@drawable/ic_blog" />
+        <ImageButton
+            android:id="@+id/ib4"
+            style="@style/FirebaseUI.Transparent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/fui_transparent"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/baby1" />
+    </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/ib3"
-        android:layout_width="119dp"
-        android:layout_height="98dp"
-        app:layout_constraintBottom_toTopOf="@+id/ib5"
-        app:layout_constraintEnd_toStartOf="@+id/ib4"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ib1"
-        app:srcCompat="@drawable/ic_blog" />
-
-    <ImageButton
-        android:id="@+id/ib1"
-        android:layout_width="119dp"
-        android:layout_height="98dp"
-        app:layout_constraintBottom_toTopOf="@+id/ib3"
-        app:layout_constraintEnd_toStartOf="@+id/ib2"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_blog" />
-
-    <ImageButton
-        android:id="@+id/ib2"
-        android:layout_width="119dp"
-        android:layout_height="98dp"
-        app:layout_constraintBottom_toTopOf="@+id/ib4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ib1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_blog" />
 </android.support.constraint.ConstraintLayout>
