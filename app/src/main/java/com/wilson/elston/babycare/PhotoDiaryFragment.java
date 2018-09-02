@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -52,7 +53,8 @@ public class PhotoDiaryFragment extends Fragment {
     private  static final  int GALLERY=2;
     private ProgressDialog dialog;
     private OnFragmentInteractionListener mListener;
-    FirebaseDatabase dref;
+    ImageView ib;
+
     public PhotoDiaryFragment() {
         // Required empty public constructor
     }
@@ -92,7 +94,9 @@ public class PhotoDiaryFragment extends Fragment {
         // Inflate the layout for this fragment
         View v=inflater.inflate(R.layout.fragment_photo_diary, container, false);
 
-
+        StorageReference storef=FirebaseStorage.getInstance().getReference();
+        ib=v.findViewById(R.id.is);
+        
        sref= FirebaseStorage.getInstance().getReference();
         setHasOptionsMenu(true);
         dialog=new ProgressDialog(getActivity());
