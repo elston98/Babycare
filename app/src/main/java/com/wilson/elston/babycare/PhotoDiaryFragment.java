@@ -17,10 +17,14 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+
+import java.nio.file.FileVisitResult;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -48,7 +52,7 @@ public class PhotoDiaryFragment extends Fragment {
     private  static final  int GALLERY=2;
     private ProgressDialog dialog;
     private OnFragmentInteractionListener mListener;
-
+    FirebaseDatabase dref;
     public PhotoDiaryFragment() {
         // Required empty public constructor
     }
@@ -120,7 +124,7 @@ public class PhotoDiaryFragment extends Fragment {
            id= FirebaseAuth.getInstance().getCurrentUser().getUid();
 
             StorageReference child=sref.child("Photos").child(id).child(uri.getLastPathSegment());
-
+            String link= String.valueOf(child.getDownloadUrl());
             child.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot)
@@ -129,6 +133,7 @@ public class PhotoDiaryFragment extends Fragment {
                     dialog.dismiss();
                 }
             });
+            FirebaseDatabase.getInstance().getReference().child("Photos").child(id).push().setValue(link    );
 
         }
 

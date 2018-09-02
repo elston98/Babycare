@@ -101,6 +101,7 @@ public class DiscussionsFragment extends Fragment {
 
                 FirebaseDatabase.getInstance()
                         .getReference()
+                        .child("message")
                         .push()
                         .setValue(new ChatMessage(input.getText().toString(),
                                 FirebaseAuth.getInstance()
@@ -125,7 +126,7 @@ public class DiscussionsFragment extends Fragment {
 
 
         adapter = new FirebaseListAdapter<ChatMessage>(getActivity(), ChatMessage.class,
-                R.layout.messages, FirebaseDatabase.getInstance().getReference()) {
+                R.layout.messages, FirebaseDatabase.getInstance().getReference().child("message")) {
             @Override
             protected void populateView(View v, ChatMessage model, int position) {
                 // Get references to the views of message.xml
