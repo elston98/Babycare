@@ -7,9 +7,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -17,15 +14,13 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-
-import java.nio.file.FileVisitResult;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -95,8 +90,7 @@ public class PhotoDiaryFragment extends Fragment {
         View v=inflater.inflate(R.layout.fragment_photo_diary, container, false);
 
         StorageReference storef=FirebaseStorage.getInstance().getReference();
-        ib=v.findViewById(R.id.is);
-        
+
        sref= FirebaseStorage.getInstance().getReference();
         setHasOptionsMenu(true);
         dialog=new ProgressDialog(getActivity());
@@ -109,6 +103,8 @@ public class PhotoDiaryFragment extends Fragment {
                 startActivityForResult(intent, GALLERY);
             }
         });
+        ib=v.findViewById(R.id.is);
+        Glide.with(getContext()).load(sref.getDownloadUrl()).into(ib);
         return v;
     }
 
@@ -127,17 +123,23 @@ public class PhotoDiaryFragment extends Fragment {
             Uri uri=data.getData();
            id= FirebaseAuth.getInstance().getCurrentUser().getUid();
 
+
             StorageReference child=sref.child("Photos").child(id).child(uri.getLastPathSegment());
-            String link= String.valueOf(child.getDownloadUrl());
+            final String link= String.valueOf(child.getDownloadUrl());
             child.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot)
                 {
                     Toast.makeText(getActivity(),"Photo Uploaded",Toast.LENGTH_LONG).show();
                     dialog.dismiss();
+
                 }
             });
-            FirebaseDatabase.getInstance().getReference().child("Photos").child(id).push().setValue(link    );
+            FirebaseDatabase.getInstance().getReference().child("Photos").child(id).push().setValue(link);
+
+
+
+
 
         }
 
