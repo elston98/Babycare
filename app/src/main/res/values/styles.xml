@@ -3,10 +3,10 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorAccent</item>
+        <item name="colorPrimary">#FF8396</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">#FF3399</item>
-        <item name="android:statusBarColor">#FF3399</item>
+        <item name="colorAccent">#FF8396</item>
+        <item name="android:statusBarColor">#F8BBD0</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
