@@ -6,24 +6,24 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_home_black_24dp"
+        android:icon="@drawable/white_home"
         android:title="@string/title_home"
 
        />
 
     <item
         android:id="@+id/navigation_discussion"
-        android:icon="@drawable/ic_blog"
+        android:icon="@drawable/white_message"
         android:title="Discussion" />
 
     <item
         android:id="@+id/navigation_experiences"
-        android:icon="@drawable/ic_photo"
+        android:icon="@drawable/white_photo"
         android:title="Photo Diary" />
 
     <item
         android:id="@+id/navigation_settings"
-        android:icon="@drawable/ic_settings"
+        android:icon="@drawable/white_settings"
         android:title="Settings"/>
 
 </menu>
