@@ -84,6 +84,8 @@ public class HomeFragment extends Fragment {
         ib2=v.findViewById(R.id.ib2);
         ib3=v.findViewById(R.id.ib3);
         ib4=v.findViewById(R.id.ib4);
+        ib5=v.findViewById(R.id.ib5);
+        ib6=v.findViewById(R.id.ib6);
 
 
         ib1.setOnClickListener(new View.OnClickListener() {
@@ -115,7 +117,22 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        ib5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(v.getContext(),fifth.class);
+                startActivity(intent);
 
+            }
+        });
+
+        ib6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(v.getContext(),sixth.class);
+                startActivity(intent);
+            }
+        });
 
         return v;
 
