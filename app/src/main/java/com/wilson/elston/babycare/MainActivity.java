@@ -15,6 +15,7 @@ import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Arrays;
 import java.util.List;
@@ -117,7 +118,12 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
             if (resultCode == RESULT_OK) {
                 // Successfully signed in
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                // ...
+                String email=FirebaseAuth.getInstance().getCurrentUser().getEmail();
+                String name=FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
+                String id=FirebaseAuth.getInstance().getCurrentUser().getUid();
+                FirebaseDatabase.getInstance().getReference().child("Users").child(id).child("Name").setValue(name);
+                FirebaseDatabase.getInstance().getReference().child("Users").child(id).child("Email").setValue(email);
+                FirebaseDatabase.getInstance().getReference().child("Users").child(id).setValue(id);
             } else {
                 // Sign in failed. If response is null the user canceled the
                 // sign-in flow using the back button. Otherwise check
