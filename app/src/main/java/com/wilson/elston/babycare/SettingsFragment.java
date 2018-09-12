@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.firebase.ui.auth.data.model.User;
@@ -35,7 +36,7 @@ public class SettingsFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
 
     String username;
-    Button logout;
+    ImageButton logout;
     String email;
     TextView name;
     TextView mail;
@@ -89,9 +90,7 @@ public class SettingsFragment extends Fragment {
 
 
         View v= inflater.inflate(R.layout.fragment_settings, container, false);
-        name=v.findViewById(R.id.name);
-        mail=v.findViewById(R.id.mail);
-        phno=v.findViewById(R.id.phno);
+
 
 
 
@@ -99,8 +98,7 @@ public class SettingsFragment extends Fragment {
         username= FirebaseAuth.getInstance().getCurrentUser().getUid();
         email=FirebaseAuth.getInstance().getCurrentUser().getEmail();
 
-        name.setText(username);
-        mail.setText(email);
+
         logout=v.findViewById(R.id.logout);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
