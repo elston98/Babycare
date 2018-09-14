@@ -38,7 +38,7 @@
             android:label="@string/title_activity_fifth"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".sixth"
+            android:name=".vaccination"
             android:label="@string/title_activity_sixth"
             android:theme="@style/AppTheme"></activity>
     </application>

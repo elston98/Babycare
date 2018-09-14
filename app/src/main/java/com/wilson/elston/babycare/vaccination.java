@@ -7,7 +7,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-public class sixth extends AppCompatActivity {
+public class vaccination extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

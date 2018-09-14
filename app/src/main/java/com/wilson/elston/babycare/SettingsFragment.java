@@ -42,9 +42,8 @@ public class SettingsFragment extends Fragment {
     String username;
     ImageButton logout;
     String email;
-    TextView name;
-    TextView mail;
-    EditText phno;
+   TextView name;
+   TextView mail;
     String id;
 
 
@@ -99,11 +98,15 @@ public class SettingsFragment extends Fragment {
 
 
 
-        username= FirebaseAuth.getInstance().getCurrentUser().getUid();
+        username= FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
         email=FirebaseAuth.getInstance().getCurrentUser().getEmail();
 
+        name=v.findViewById(R.id.name);
+        name.setText(username);
+        mail=v.findViewById(R.id.email);
+        mail.setText(email);
 
-      
+
 
 
 
