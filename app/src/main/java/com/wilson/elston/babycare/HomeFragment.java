@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -13,6 +14,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import com.firebase.ui.auth.AuthUI;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+
+import java.util.Arrays;
+import java.util.List;
 
 
 /**
@@ -156,7 +164,7 @@ public class HomeFragment extends Fragment {
                 Toast.makeText(getContext(),"This is the Profile option",Toast.LENGTH_LONG).show();
                 break;
             case R.id.logout:
-                Toast.makeText(getContext(),"This is the logout option",Toast.LENGTH_LONG).show();
+               AuthUI.getInstance().signOut(getContext());
                 break;
             default:
                 break;
@@ -165,7 +173,7 @@ public class HomeFragment extends Fragment {
         return  true;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
+        // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
