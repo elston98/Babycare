@@ -6,9 +6,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 
 /**
@@ -134,8 +138,31 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        setHasOptionsMenu(true);
         return v;
 
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
+        menuInflater.inflate(R.menu.home_menu, menu);
+        super.onCreateOptionsMenu(menu, menuInflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.profile:
+                Toast.makeText(getContext(),"This is the Profile option",Toast.LENGTH_LONG).show();
+                break;
+            case R.id.logout:
+                Toast.makeText(getContext(),"This is the logout option",Toast.LENGTH_LONG).show();
+                break;
+            default:
+                break;
+
+        }
+        return  true;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

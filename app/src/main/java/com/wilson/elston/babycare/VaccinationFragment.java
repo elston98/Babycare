@@ -2,7 +2,6 @@ package com.wilson.elston.babycare;
 
 import android.content.Context;
 import android.content.Intent;
-import android.icu.lang.UScript;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,28 +11,22 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.firebase.ui.auth.data.model.User;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import org.w3c.dom.Text;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link SettingsFragment.OnFragmentInteractionListener} interface
+ * {@link VaccinationFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link SettingsFragment#newInstance} factory method to
+ * Use the {@link VaccinationFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SettingsFragment extends Fragment {
+public class VaccinationFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -55,7 +48,7 @@ public class SettingsFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public SettingsFragment() {
+    public VaccinationFragment() {
         // Required empty public constructor
     }
 
@@ -65,11 +58,11 @@ public class SettingsFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment SettingsFragment.
+     * @return A new instance of fragment VaccinationFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static SettingsFragment newInstance(String param1, String param2) {
-        SettingsFragment fragment = new SettingsFragment();
+    public static VaccinationFragment newInstance(String param1, String param2) {
+        VaccinationFragment fragment = new VaccinationFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -92,25 +85,31 @@ public class SettingsFragment extends Fragment {
         // Inflate the layout for this fragment
 
 
-        View v= inflater.inflate(R.layout.fragment_settings, container, false);
+        View v= inflater.inflate(R.layout.fragment_vaccination, container, false);
 
-
-
-
-
-        username= FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
-        email=FirebaseAuth.getInstance().getCurrentUser().getEmail();
-
-        name=v.findViewById(R.id.name);
-        name.setText(username);
-        mail=v.findViewById(R.id.email);
-        mail.setText(email);
-
-
-
+        setHasOptionsMenu(true);
 
 
         return v;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
+        menuInflater.inflate(R.menu.vaccination, menu);
+        super.onCreateOptionsMenu(menu, menuInflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.vaccination:
+                Toast.makeText(getContext(),"This is the vaccination Fragment",Toast.LENGTH_LONG).show();
+                break;
+            default:
+                break;
+
+        }
+        return  true;
     }
 
 

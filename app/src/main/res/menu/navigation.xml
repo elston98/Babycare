@@ -22,8 +22,8 @@
         android:title="Photo Diary" />
 
     <item
-        android:id="@+id/navigation_settings"
-        android:icon="@drawable/white_settings"
-        android:title="Settings"/>
+        android:id="@+id/navigation_vaccination"
+        android:icon="@drawable/vac"
+        android:title="Vaccination"/>
 
 </menu>

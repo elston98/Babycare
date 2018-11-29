@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
@@ -18,9 +17,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Arrays;
-import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener, DiscussionsFragment.OnFragmentInteractionListener,PhotoDiaryFragment.OnFragmentInteractionListener , SettingsFragment.OnFragmentInteractionListener{
+public class MainActivity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener, DiscussionsFragment.OnFragmentInteractionListener,PhotoDiaryFragment.OnFragmentInteractionListener , VaccinationFragment.OnFragmentInteractionListener{
 
     private TextView mTextMessage;
     private static final int RC_SIGN_IN = 123;
@@ -54,11 +52,11 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
                     fragmentTransaction3.replace(R.id.frame,photoDiaryFragment,"Home");
                     fragmentTransaction3.commit();
                     return true;
-                case R.id.navigation_settings:
-                    setTitle("Settings");
-                    SettingsFragment settingsFragment=new SettingsFragment();
+                case R.id.navigation_vaccination:
+                    setTitle("Vaccination");
+                    VaccinationFragment vaccinationFragment =new VaccinationFragment();
                     FragmentTransaction fragmentTransaction4=getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction4.replace(R.id.frame,settingsFragment,"Settings");
+                    fragmentTransaction4.replace(R.id.frame,vaccinationFragment,"Vaccination");
                     fragmentTransaction4.commit();
                     return true;
 
