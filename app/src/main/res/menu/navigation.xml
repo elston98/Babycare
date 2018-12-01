@@ -14,12 +14,12 @@
     <item
         android:id="@+id/navigation_discussion"
         android:icon="@drawable/white_message"
-        android:title="Discussion" />
+        android:title="Birth Club" />
 
     <item
         android:id="@+id/navigation_experiences"
         android:icon="@drawable/white_photo"
-        android:title="Photo Diary" />
+        android:title="Memories" />
 
     <item
         android:id="@+id/navigation_vaccination"

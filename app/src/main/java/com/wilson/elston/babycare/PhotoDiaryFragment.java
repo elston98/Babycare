@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,6 +17,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextClock;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -26,6 +29,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+
+import java.net.URL;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -94,15 +99,15 @@ public class PhotoDiaryFragment extends Fragment {
         // Inflate the layout for this fragment
         View v=inflater.inflate(R.layout.fragment_photo_diary, container, false);
 
-        StorageReference storef=FirebaseStorage.getInstance().getReference();
+
 
        sref= FirebaseStorage.getInstance().getReference();
         setHasOptionsMenu(true);
         dialog=new ProgressDialog(getActivity());
 
         ib=v.findViewById(R.id.is);
-        Glide.with(getContext()).load(sref.getDownloadUrl()).into(ib);
-        
+
+
         setHasOptionsMenu(true);
 
         
@@ -148,7 +153,9 @@ public class PhotoDiaryFragment extends Fragment {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot)
                 {
+
                     Toast.makeText(getActivity(),"Photo Uploaded",Toast.LENGTH_LONG).show();
+                   Glide.with(getContext()).load(R.drawable.main_icon).into(ib);
                     dialog.dismiss();
 
                 }
@@ -160,10 +167,6 @@ public class PhotoDiaryFragment extends Fragment {
                 }
             });
             FirebaseDatabase.getInstance().getReference().child("Photos").child(id).push().setValue(link);
-
-
-
-
 
         }
 

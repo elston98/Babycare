@@ -4,110 +4,192 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cl"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="505dp"
     android:background="#FFD1DC">
 
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="0dp"
-        android:layout_height="213dp"
-        android:scaleType="fitStart"
+    <ImageButton
+        android:id="@+id/ib2"
+        android:layout_width="117dp"
+        android:layout_height="102dp"
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/shape"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ib1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/faq"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/ib1"
+        android:layout_width="117dp"
+        android:layout_height="102dp"
+
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/shape"
+        app:layout_constraintEnd_toStartOf="@+id/ib2"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/baby" />
+        app:srcCompat="@drawable/guide"
+        tools:ignore="MissingConstraints" />
 
+    <ImageButton
+        android:id="@+id/ib3"
+        android:layout_width="117dp"
+        android:layout_height="102dp"
 
-    <LinearLayout
-        android:id="@+id/l1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/shape"
+        app:layout_constraintEnd_toStartOf="@+id/ib4"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView">
+        app:layout_constraintTop_toBottomOf="@+id/ib1"
+        app:srcCompat="@drawable/product"
+        tools:ignore="MissingConstraints" />
 
-        <ImageButton
-            android:id="@+id/ib1"
-            android:layout_width="120dp"
-            android:layout_height="106dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp"
-            android:layout_weight="1"
-            android:background="@drawable/button_shape"
-            android:contentDescription="Green Tick Button"
-            android:scaleType="fitCenter"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/syringe" />
+    <ImageButton
+        android:id="@+id/ib6"
+        android:layout_width="117dp"
+        android:layout_height="102dp"
+        android:layout_marginBottom="16dp"
 
-        <ImageButton
-            android:id="@+id/ib2"
-            android:layout_width="120dp"
-            android:layout_height="106dp"
-            android:layout_weight="1"
-            android:background="@drawable/button_shape"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/camera" />
-
-        <ImageButton
-            android:id="@+id/ib3"
-            android:layout_width="120dp"
-            android:layout_height="106dp"
-            android:layout_weight="1"
-            android:background="@drawable/button_shape"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/camera" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/shape"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ib5"
+        app:layout_constraintTop_toBottomOf="@+id/ib4"
+        app:layout_constraintVertical_bias="0.203"
+        app:srcCompat="@drawable/growth"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/ib5"
+        android:layout_width="117dp"
+        android:layout_height="102dp"
+
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/shape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ib6"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/l1"
-        app:layout_constraintVertical_bias="0.34">
+        app:layout_constraintTop_toBottomOf="@+id/ib3"
+        app:layout_constraintVertical_bias="0.203"
+        app:srcCompat="@drawable/day_care"
+        tools:ignore="MissingConstraints" />
 
-        <ImageButton
-            android:id="@+id/ib4"
-            android:layout_width="120dp"
-            android:layout_height="106dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp"
-            android:layout_weight="1"
-            android:background="@drawable/button_shape"
-            android:contentDescription="Green Tick Button"
-            android:scaleType="fitCenter"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/syringe" />
+    <ImageButton
+        android:id="@+id/ib4"
+        android:layout_width="117dp"
+        android:layout_height="102dp"
 
-        <ImageButton
-            android:id="@+id/ib5"
-            android:layout_width="120dp"
-            android:layout_height="106dp"
-            android:layout_weight="1"
-            android:background="@drawable/button_shape"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/camera" />
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/shape"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ib3"
+        app:layout_constraintTop_toBottomOf="@+id/ib2"
+        app:srcCompat="@drawable/care"
+        tools:ignore="MissingConstraints" />
 
-        <ImageButton
-            android:id="@+id/ib6"
-            android:layout_width="120dp"
-            android:layout_height="106dp"
-            android:layout_weight="1"
-            android:background="@drawable/button_shape"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/syringe" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:text="Growth"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/ib6"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/ib6"
+        app:layout_constraintTop_toTopOf="@+id/ib6" />
 
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:text="Day Care"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/ib5"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/ib5"
+        app:layout_constraintTop_toTopOf="@+id/ib5" />
 
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="68dp"
+        android:text="Health Care"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/ib4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/ib4"
+        app:layout_constraintTop_toTopOf="@+id/ib4" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="68dp"
+        android:text="Baby Guide"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/ib1"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/ib1"
+        app:layout_constraintTop_toTopOf="@+id/ib1" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="68dp"
+        android:text="FAQ"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/ib2"
+        app:layout_constraintHorizontal_bias="0.66"
+        app:layout_constraintStart_toStartOf="@+id/ib2"
+        app:layout_constraintTop_toTopOf="@+id/ib2" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="68dp"
+        android:text="Products"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/ib3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/ib3"
+        app:layout_constraintTop_toTopOf="@+id/ib3" />
 </android.support.constraint.ConstraintLayout>

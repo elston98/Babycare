@@ -39,14 +39,14 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
                     fragmentTransaction1.commit();
                     return true;
                 case R.id.navigation_discussion:
-                    setTitle("Experiences");
+                    setTitle("Birth Club");
                     DiscussionsFragment discussionsFragment=new DiscussionsFragment();
                     FragmentTransaction fragmentTransaction2= getSupportFragmentManager().beginTransaction();
                     fragmentTransaction2.replace(R.id.frame,discussionsFragment,"Home");
                     fragmentTransaction2.commit();
                     return true;
                 case R.id.navigation_experiences:
-                    setTitle("Experiences");
+                    setTitle("Memories");
                     PhotoDiaryFragment photoDiaryFragment=new PhotoDiaryFragment();
                     FragmentTransaction fragmentTransaction3= getSupportFragmentManager().beginTransaction();
                     fragmentTransaction3.replace(R.id.frame,photoDiaryFragment,"Home");
