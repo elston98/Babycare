@@ -20,7 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".first" />
+        <activity android:name=".baby_guide" />
         <activity
             android:name=".second"
             android:label="@string/title_activity_second"

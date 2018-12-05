@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -16,11 +15,6 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-
-import java.util.Arrays;
-import java.util.List;
 
 
 /**
@@ -103,7 +97,7 @@ public class HomeFragment extends Fragment {
         ib1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent(v.getContext(),first.class);
+                Intent intent= new Intent(v.getContext(),baby_guide.class);
                 startActivity(intent);
             }
         });
