@@ -135,7 +135,7 @@ public class HomeFragment extends Fragment {
         ib6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(v.getContext(),vaccination.class);
+                Intent intent=new Intent(v.getContext(),growth_diary.class);
                 startActivity(intent);
             }
         });
