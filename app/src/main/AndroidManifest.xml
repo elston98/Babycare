@@ -42,7 +42,8 @@
             android:label="@string/title_activity_sixth"
             android:theme="@style/AppTheme" />
         <activity android:name=".growth_diary" />
-        <activity android:name=".Diary"></activity>
+        <activity android:name=".Diary" />
+        <activity android:name=".content"></activity>
     </application>
 
 </manifest>

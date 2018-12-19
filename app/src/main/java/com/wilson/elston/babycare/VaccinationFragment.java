@@ -93,7 +93,7 @@ public class VaccinationFragment extends Fragment {
         return v;
     }
 
-    @Override
+   /* @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
         menuInflater.inflate(R.menu.vaccination, menu);
         super.onCreateOptionsMenu(menu, menuInflater);
@@ -110,7 +110,7 @@ public class VaccinationFragment extends Fragment {
 
         }
         return  true;
-    }
+    }*/
 
 
     // TODO: Rename method, update argument and hook method into UI event
