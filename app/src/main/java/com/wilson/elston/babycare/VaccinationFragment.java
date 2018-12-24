@@ -1,21 +1,30 @@
 package com.wilson.elston.babycare;
 
+import android.app.Dialog;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.Calendar;
 
 
 /**
@@ -87,9 +96,24 @@ public class VaccinationFragment extends Fragment {
 
         View v= inflater.inflate(R.layout.fragment_vaccination, container, false);
 
+
         setHasOptionsMenu(true);
 
 
+        Button date=(Button)v.findViewById(R.id.date);
+        Button time=(Button) v.findViewById(R.id.time);
+        date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(), "This is the Date Picker Dialog", Toast.LENGTH_SHORT).show();
+            }
+        });
+        time.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(),"This is the Time Picker Dialog",Toast.LENGTH_LONG).show();
+            }
+        });
         return v;
     }
 
@@ -136,6 +160,7 @@ public class VaccinationFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
+
 
     /**
      * This interface must be implemented by activities that contain this
