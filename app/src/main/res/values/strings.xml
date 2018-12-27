@@ -11,5 +11,7 @@
     <string name="title_activity_fourth">fourth</string>
     <string name="title_activity_fifth">fifth</string>
     <string name="title_activity_sixth">sixth</string>
+    <string name="channel_name">Notification</string>
+    <string name="channel_description">This is the notification</string>
     <string name="first">If you haven\'t spent a lot of time around newborns, their fragility may be intimidating. Here are a few basics to remember:</string>
 </resources>

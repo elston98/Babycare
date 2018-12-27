@@ -1,14 +1,22 @@
 package com.wilson.elston.babycare;
 
+import android.app.AlarmManager;
+import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -17,6 +25,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -49,6 +59,14 @@ public class VaccinationFragment extends Fragment {
     String id;
 
 
+    int myear;
+    int mmonth;
+    int mday;
+    int notificationId=123;
+    int mhour;
+    int mminute;
+    EditText et;
+    EditText et3;
 
 
     // TODO: Rename and change types of parameters
@@ -56,6 +74,7 @@ public class VaccinationFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    private String CHANNEL_ID="123";
 
     public VaccinationFragment() {
         // Required empty public constructor
@@ -100,22 +119,79 @@ public class VaccinationFragment extends Fragment {
         setHasOptionsMenu(true);
 
 
+        final EditText et=(EditText) v.findViewById(R.id.et);
+        final EditText et3=(EditText) v.findViewById(R.id.et1);
         Button date=(Button)v.findViewById(R.id.date);
         Button time=(Button) v.findViewById(R.id.time);
+
         date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(), "This is the Date Picker Dialog", Toast.LENGTH_SHORT).show();
+                final Calendar c=Calendar.getInstance();
+
+                myear = c.get(Calendar.YEAR);
+                mmonth = c.get(Calendar.MONTH);
+                mday = c.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog datePickerDialog  =new DatePickerDialog(getContext(), new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+
+                        et.setText(i2+"-"+(i1+1)+"-"+i);
+                        mday=i2;
+                        mmonth=i1+1;
+                        myear=i;
+                    }
+                },myear,mmonth,mday);
+                datePickerDialog.show();
             }
         });
+
         time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(),"This is the Time Picker Dialog",Toast.LENGTH_LONG).show();
+                final  Calendar c=Calendar.getInstance();
+
+                mhour = c.get(Calendar.HOUR_OF_DAY);
+                mminute = c.get(Calendar.MINUTE);
+                TimePickerDialog timePickerDialog=new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int i, int i1) {
+                        et3.setText(i+":"+i1);
+                        mhour=i;
+                        mminute=i1;
+
+                    }
+                },mhour,mminute,false);
+                timePickerDialog.show();
+
             }
         });
+
+        Button b3=(Button) v.findViewById(R.id.b3);
+        b3.setOnClickListener(new View.OnClickListener() {
+                                  @Override
+                                  public void onClick(View view) {
+
+                                      Calendar myAlarmDate = Calendar.getInstance();
+                                      myAlarmDate.setTimeInMillis(System.currentTimeMillis());
+                                      myAlarmDate.set(myear, mmonth-1, mday, mhour, mminute, 0);
+                                      AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
+
+                                      Intent intent = new Intent(getContext(), AlarmReceiver.class);
+                                      intent.putExtra("MyMessage", "HERE I AM PASSING THEPERTICULAR MESSAGE WHICH SHOULD BE SHOW ON RECEIVER OF ALARM");
+                                      PendingIntent pendingIntent = PendingIntent.getBroadcast(getContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                                      alarmManager.set(AlarmManager.RTC_WAKEUP, myAlarmDate.getTimeInMillis(), pendingIntent);
+                                  }
+                              });
+
+
+
         return v;
-    }
+
+        }
+
+
 
    /* @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
