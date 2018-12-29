@@ -5,11 +5,10 @@
 
     <item
         android:id="@+id/vaccination"
+        android:icon="@drawable/add"
         android:orderInCategory="100"
-        app:showAsAction="always"
-        android:tooltipText="Reminder"
         android:title="Settings"
-        android:icon="@drawable/vac">
-    </item>
+        android:tooltipText="Reminder"
+        app:showAsAction="always"></item>
 
 </menu>

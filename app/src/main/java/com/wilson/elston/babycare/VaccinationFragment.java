@@ -1,22 +1,10 @@
 package com.wilson.elston.babycare;
 
-import android.app.AlarmManager;
-import android.app.DatePickerDialog;
-import android.app.Dialog;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -25,16 +13,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.TimePicker;
-import android.widget.Toast;
 
+import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.Calendar;
+import java.util.jar.Attributes;
 
 
 /**
@@ -57,12 +45,16 @@ public class VaccinationFragment extends Fragment {
    TextView name;
    TextView mail;
     String id;
+    FirebaseListAdapter adapter;
 
 
     int myear;
     int mmonth;
     int mday;
+    TextView na;
+    TextView date;
     int notificationId=123;
+    ListView list;
     int mhour;
     int mminute;
     EditText et;
@@ -121,69 +113,11 @@ public class VaccinationFragment extends Fragment {
 
         final EditText et=(EditText) v.findViewById(R.id.et);
         final EditText et3=(EditText) v.findViewById(R.id.et1);
-        Button date=(Button)v.findViewById(R.id.date);
+        Button date=(Button)v.findViewById(R.id.et);
+        id= FirebaseAuth.getInstance().getUid();
         Button time=(Button) v.findViewById(R.id.time);
-
-        date.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                final Calendar c=Calendar.getInstance();
-
-                myear = c.get(Calendar.YEAR);
-                mmonth = c.get(Calendar.MONTH);
-                mday = c.get(Calendar.DAY_OF_MONTH);
-
-                DatePickerDialog datePickerDialog  =new DatePickerDialog(getContext(), new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-
-                        et.setText(i2+"-"+(i1+1)+"-"+i);
-                        mday=i2;
-                        mmonth=i1+1;
-                        myear=i;
-                    }
-                },myear,mmonth,mday);
-                datePickerDialog.show();
-            }
-        });
-
-        time.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                final  Calendar c=Calendar.getInstance();
-
-                mhour = c.get(Calendar.HOUR_OF_DAY);
-                mminute = c.get(Calendar.MINUTE);
-                TimePickerDialog timePickerDialog=new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker timePicker, int i, int i1) {
-                        et3.setText(i+":"+i1);
-                        mhour=i;
-                        mminute=i1;
-
-                    }
-                },mhour,mminute,false);
-                timePickerDialog.show();
-
-            }
-        });
-
-        Button b3=(Button) v.findViewById(R.id.b3);
-        b3.setOnClickListener(new View.OnClickListener() {
-                                  @Override
-                                  public void onClick(View view) {
-
-                                      Calendar myAlarmDate = Calendar.getInstance();
-                                      myAlarmDate.setTimeInMillis(System.currentTimeMillis());
-                                      myAlarmDate.set(myear, mmonth-1, mday, mhour, mminute, 0);
-                                      AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
-
-                                      Intent intent = new Intent(getContext(), AlarmReceiver.class);
-                                      intent.putExtra("MyMessage", "HERE I AM PASSING THEPERTICULAR MESSAGE WHICH SHOULD BE SHOW ON RECEIVER OF ALARM");
-                                      PendingIntent pendingIntent = PendingIntent.getBroadcast(getContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-                                      alarmManager.set(AlarmManager.RTC_WAKEUP, myAlarmDate.getTimeInMillis(), pendingIntent);
-                                  }
-                              });
+        list=v.findViewById(R.id.list_of_vaccine);
+        display_vaccine();
 
 
 
@@ -191,63 +125,85 @@ public class VaccinationFragment extends Fragment {
 
         }
 
+    private void display_vaccine() {
+
+        adapter = new FirebaseListAdapter<Vaccine>(getActivity(), Vaccine.class,
+                R.layout.vac_details, FirebaseDatabase.getInstance().getReference().child("Vaccination").child(id)) {
+            @Override
+            protected void populateView(View v, Vaccine model, int position) {
+                na=v.findViewById(R.id.name);
+                date=v.findViewById(R.id.date);
+                na.setText(model.name);
+                date.setText(model.date);
+
+            }
 
 
-   /* @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
-        menuInflater.inflate(R.menu.vaccination, menu);
-        super.onCreateOptionsMenu(menu, menuInflater);
+        };
+
+        list.setAdapter(adapter);
+
+
     }
 
+
+
+    @Override
+public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
+    menuInflater.inflate(R.menu.vaccination, menu);
+    super.onCreateOptionsMenu(menu, menuInflater);
+}
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.vaccination:
-                Toast.makeText(getContext(),"This is the vaccination Fragment",Toast.LENGTH_LONG).show();
+                Intent intent=new Intent(getContext(),Details.class);
+                startActivity(intent);
                 break;
             default:
                 break;
 
         }
         return  true;
-    }*/
-
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
     }
 
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
+
+// TODO: Rename method, update argument and hook method into UI event
+public void onButtonPressed(Uri uri) {
+    if (mListener != null) {
+        mListener.onFragmentInteraction(uri);
+    }
+}
+
+@Override
+public void onAttach(Context context) {
+    super.onAttach(context);
+    if (context instanceof OnFragmentInteractionListener) {
+        mListener = (OnFragmentInteractionListener) context;
+    } else {
+        throw new RuntimeException(context.toString()
+                + " must implement OnFragmentInteractionListener");
+    }
+}
+
+@Override
+public void onDetach() {
+    super.onDetach();
+    mListener = null;
+}
+
+
+/**
+ * This interface must be implemented by activities that contain this
+ * fragment to allow an interaction in this fragment to be communicated
+ * to the activity and potentially other fragments contained in that
+ * activity.
+ * <p>
+ * See the Android Training lesson <a href=
+ * "http://developer.android.com/training/basics/fragments/communicating.html"
+ * >Communicating with Other Fragments</a> for more information.
+ */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);

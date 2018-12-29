@@ -6,10 +6,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.bumptech.glide.load.resource.gif.GifBitmapProvider;
-
-import org.w3c.dom.Text;
-
 public class baby_guide extends AppCompatActivity {
     int tb1count=1;
     int tb2count=1;
@@ -27,7 +23,7 @@ public class baby_guide extends AppCompatActivity {
 
         Button b1=(Button) findViewById(R.id.b1);
         Button b2=(Button) findViewById(R.id.b2);
-        Button b3=(Button) findViewById(R.id.b3);
+        Button b3=(Button) findViewById(R.id.save);
         Button b4=(Button) findViewById(R.id.b4);
         Button b5=(Button) findViewById(R.id.b5);
         Button b6=(Button) findViewById(R.id.b6);

@@ -14,6 +14,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
 
+import java.util.Random;
+
 public class AlarmReceiver  extends BroadcastReceiver{
     private String CHANNEL_ID="123";
 
@@ -21,18 +23,23 @@ public class AlarmReceiver  extends BroadcastReceiver{
     @Override
 
     public void onReceive(Context context, Intent intent) {
-         Intent intent1 = new Intent(context, AlertDetails.class);
+
          intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
           PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
+          String nm=intent.getExtras().getString("Name");
+
           NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context, CHANNEL_ID)
                         .setSmallIcon(R.drawable.main_icon)
                         .setContentTitle("Vaccination Reminder")
+                        .setAutoCancel(true)
+                        .setContentText("Vaccination of "+nm.toString()+" is due")
                         .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                         // Set the intent that will fire when the user taps the notification
                         .setContentIntent(pendingIntent);
 
                 NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
-        int notificationId=10;
+                Random ran=new Random();
+        int notificationId= ran.nextInt(100);
         notificationManager.notify(notificationId,mBuilder.build());
 
             }

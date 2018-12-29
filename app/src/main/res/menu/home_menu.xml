@@ -4,10 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-    android:id="@+id/refresh"
-    android:orderInCategory="100"
-    android:icon="@drawable/three_dots"
-    app:showAsAction="always"
+        android:id="@+id/refresh"
+        android:icon="@drawable/white_dots"
+        android:orderInCategory="100"
+        app:showAsAction="always"
         tools:ignore="MenuTitle">
 
         <menu>
@@ -21,7 +21,7 @@
                 android:id="@id/logout"
                 android:orderInCategory="100"
                 android:title="Logout"
-                app:showAsAction="always"/>
+                app:showAsAction="always" />
         </menu>
     </item>
 
