@@ -4,9 +4,13 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.common.images.ImageRequest;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
+
+import org.w3c.dom.Text;
 
 public class content extends AppCompatActivity {
 
@@ -15,12 +19,11 @@ public class content extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content);
 
-        String id=FirebaseAuth.getInstance().getUid();
-
         Intent intent=getIntent();
-        String cont=intent.getStringExtra("content");
-        TextView tv=(TextView) findViewById(R.id.tvcon);
-        tv.setText(cont);
+        String content=intent.getStringExtra("content");
 
+        TextView tvcon=(TextView) findViewById(R.id.tvcon);
+        Toast.makeText(content.this,content,Toast.LENGTH_LONG).show();
+        tvcon.setText(content);
     }
 }

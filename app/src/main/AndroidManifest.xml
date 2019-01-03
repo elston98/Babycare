@@ -43,7 +43,10 @@
             android:name=".vaccination"
             android:label="@string/title_activity_sixth"
             android:theme="@style/AppTheme" />
-        <activity android:name=".growth_diary" />
+        <activity android:name="com.wilson.elston.babycare.growth_diary"
+            android:label="growth_diary">
+
+        </activity>
         <activity android:name=".Diary" />
         <activity android:name=".content" />
         <activity android:name=".Details"></activity>

@@ -18,7 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Arrays;
 
-public class MainActivity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener, DiscussionsFragment.OnFragmentInteractionListener,PhotoDiaryFragment.OnFragmentInteractionListener , VaccinationFragment.OnFragmentInteractionListener{
+public class MainActivity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener, DiscussionsFragment.OnFragmentInteractionListener,ExperiencesFragment.OnFragmentInteractionListener , VaccinationFragment.OnFragmentInteractionListener{
 
     private TextView mTextMessage;
     private static final int RC_SIGN_IN = 123;
@@ -47,9 +47,9 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
                     return true;
                 case R.id.navigation_experiences:
                     setTitle("Memories");
-                    PhotoDiaryFragment photoDiaryFragment=new PhotoDiaryFragment();
+                    ExperiencesFragment experiencesFragment =new ExperiencesFragment();
                     FragmentTransaction fragmentTransaction3= getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction3.replace(R.id.frame,photoDiaryFragment,"Home");
+                    fragmentTransaction3.replace(R.id.frame, experiencesFragment,"Home");
                     fragmentTransaction3.commit();
                     return true;
                 case R.id.navigation_vaccination:

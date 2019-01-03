@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -17,20 +16,18 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextClock;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-
-import java.net.URL;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -38,12 +35,12 @@ import static android.app.Activity.RESULT_OK;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link PhotoDiaryFragment.OnFragmentInteractionListener} interface
+ * {@link ExperiencesFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link PhotoDiaryFragment#newInstance} factory method to
+ * Use the {@link ExperiencesFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class PhotoDiaryFragment extends Fragment {
+public class ExperiencesFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -53,6 +50,7 @@ public class PhotoDiaryFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     ImageButton storage;
+    String link;
    private StorageReference sref;
     String id;
     private  static final  int GALLERY=2;
@@ -60,7 +58,7 @@ public class PhotoDiaryFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
     ImageView ib;
 
-    public PhotoDiaryFragment() {
+    public ExperiencesFragment() {
         // Required empty public constructor
     }
 
@@ -73,8 +71,8 @@ public class PhotoDiaryFragment extends Fragment {
      * @return A new instance of fragment ExperiencesFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static PhotoDiaryFragment newInstance(String param1, String param2) {
-        PhotoDiaryFragment fragment = new PhotoDiaryFragment();
+    public static ExperiencesFragment newInstance(String param1, String param2) {
+        ExperiencesFragment fragment = new ExperiencesFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -143,19 +141,19 @@ public class PhotoDiaryFragment extends Fragment {
 
 
 
-            Uri uri=data.getData();
+            final Uri uri=data.getData();
            id= FirebaseAuth.getInstance().getCurrentUser().getUid();
 
 
             StorageReference child=sref.child("Photos").child(id).child(uri.getLastPathSegment());
-            final String link= String.valueOf(child.getDownloadUrl());
+
             child.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot)
                 {
 
-                    Toast.makeText(getActivity(),"Photo Uploaded",Toast.LENGTH_LONG).show();
-                   Glide.with(getContext()).load(R.drawable.main_icon).into(ib);
+                  //  Glide.with(getContext()).load(taskSnapshot.getUploadSessionUri().toString()).into(ib);
+                    Toast.makeText(getActivity(),"Photo Retrieval currently not working",Toast.LENGTH_LONG).show();
                     dialog.dismiss();
 
                 }
@@ -166,6 +164,7 @@ public class PhotoDiaryFragment extends Fragment {
                     dialog.dismiss();
                 }
             });
+
             FirebaseDatabase.getInstance().getReference().child("Photos").child(id).push().setValue(link);
 
         }

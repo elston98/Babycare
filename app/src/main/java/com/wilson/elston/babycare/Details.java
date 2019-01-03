@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,8 +28,8 @@ public class Details extends AppCompatActivity {
     String id;
     String nm;
     int mday;
-    int mhour=10;
-    int mmin=45;
+    int mhour;
+    int mmin;
     EditText name;
     EditText et;
     @Override
@@ -62,6 +63,7 @@ public class Details extends AppCompatActivity {
                         mday=i2;
                         mmonth=i1+1;
                         myear=i;
+                        timePicker();
                     }
                 },myear,mmonth,mday);
                 datePickerDialog.show();
@@ -88,10 +90,28 @@ public class Details extends AppCompatActivity {
 
                 String date=""+mday+"-"+mmonth+"-"+myear;
                 FirebaseDatabase.getInstance().getReference().child("Vaccination").child(id).push().setValue(new Vaccine(nm,date));
+                Details.super.onBackPressed();
 
             }
         });
 
     }
+    public  void timePicker()
+    {
+        final  Calendar c=Calendar.getInstance();
 
-}
+        mhour = c.get(Calendar.HOUR_OF_DAY);
+        mmin = c.get(Calendar.MINUTE);
+        TimePickerDialog timePickerDialog=new TimePickerDialog(Details.this, new TimePickerDialog.OnTimeSetListener() {
+
+            @Override
+            public void onTimeSet(TimePicker timePicker, int i, int i1) {
+                mhour=i;
+                mmin=i1;
+
+            }
+        },mhour,mmin,false);
+        timePickerDialog.show();
+
+    }
+    }

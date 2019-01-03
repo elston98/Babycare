@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".VaccinationFragment"
-    android:theme="@style/AppTheme">
+    android:theme="@style/AppTheme"
+    android:background="#FFD1DC">
 
     <!-- TODO: Update blank fragment layout -->
 

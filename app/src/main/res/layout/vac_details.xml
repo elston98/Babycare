@@ -11,10 +11,11 @@
         android:layout_height="70dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="4dp">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/name"
@@ -44,7 +45,6 @@
             android:layout_marginTop="5dp"
             android:layout_weight="1"
             android:paddingTop="15dp"
-            android:text="ooko"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textSize="18sp"
