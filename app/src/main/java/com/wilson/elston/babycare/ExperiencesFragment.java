@@ -7,6 +7,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,18 +18,30 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.firebase.ui.database.FirebaseListAdapter;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -52,11 +66,20 @@ public class ExperiencesFragment extends Fragment {
     ImageButton storage;
     String link;
    private StorageReference sref;
-    String id;
+    String  id= FirebaseAuth.getInstance().getCurrentUser().getUid();
     private  static final  int GALLERY=2;
     private ProgressDialog dialog;
     private OnFragmentInteractionListener mListener;
     ImageView ib;
+
+    private RecyclerView mRecyclerView;
+    private ImageAdapter mAdapter;
+
+    private DatabaseReference mDatabaseRef;
+    private List<Upload> mUploads;
+    private StorageTask mUploadTask;
+
+
 
     public ExperiencesFragment() {
         // Required empty public constructor
@@ -98,19 +121,50 @@ public class ExperiencesFragment extends Fragment {
         View v=inflater.inflate(R.layout.fragment_photo_diary, container, false);
 
 
-
        sref= FirebaseStorage.getInstance().getReference();
         setHasOptionsMenu(true);
         dialog=new ProgressDialog(getActivity());
 
-        ib=v.findViewById(R.id.is);
+       // ib=v.findViewById(R.id.is);
 
 
         setHasOptionsMenu(true);
 
-        
+
+        mRecyclerView=v.findViewById(R.id.recycler_view);
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        mUploads=new ArrayList<>();
+        mDatabaseRef= FirebaseDatabase.getInstance().getReference().child("Photos").child(""+id);
+
+        mDatabaseRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot postsnapshot: dataSnapshot.getChildren())
+                {
+                    Upload upload=postsnapshot.getValue(Upload.class);
+                    mUploads.add(upload);
+
+                }
+                mAdapter=new ImageAdapter(getContext(),mUploads);
+                mRecyclerView.setAdapter(mAdapter);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                Toast.makeText(getContext(),databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
         return v;
     }
+
+
+
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
@@ -142,7 +196,7 @@ public class ExperiencesFragment extends Fragment {
 
 
             final Uri uri=data.getData();
-           id= FirebaseAuth.getInstance().getCurrentUser().getUid();
+
 
 
             StorageReference child=sref.child("Photos").child(id).child(uri.getLastPathSegment());
@@ -153,6 +207,9 @@ public class ExperiencesFragment extends Fragment {
                 {
 
                   //  Glide.with(getContext()).load(taskSnapshot.getUploadSessionUri().toString()).into(ib);
+                    String link=taskSnapshot.getUploadSessionUri().toString();
+                    Upload upload=new Upload(taskSnapshot.getUploadSessionUri().toString());
+                    FirebaseDatabase.getInstance().getReference().child("Photos").child(id).push().setValue(upload);
                     Toast.makeText(getActivity(),"Photo Retrieval currently not working",Toast.LENGTH_LONG).show();
                     dialog.dismiss();
 
@@ -164,13 +221,14 @@ public class ExperiencesFragment extends Fragment {
                     dialog.dismiss();
                 }
             });
-
-            FirebaseDatabase.getInstance().getReference().child("Photos").child(id).push().setValue(link);
-
         }
 
 
     }
+
+
+
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
