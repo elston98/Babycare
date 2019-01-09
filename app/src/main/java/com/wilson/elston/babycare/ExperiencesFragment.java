@@ -124,7 +124,7 @@ public class ExperiencesFragment extends Fragment {
        sref= FirebaseStorage.getInstance().getReference();
         setHasOptionsMenu(true);
         dialog=new ProgressDialog(getActivity());
-
+        dialog.setCanceledOnTouchOutside(false);
        // ib=v.findViewById(R.id.is);
 
 

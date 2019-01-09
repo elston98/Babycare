@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.firebase.FirebaseOptions;
@@ -88,7 +89,7 @@ public class DiscussionsFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View v= inflater.inflate(R.layout.fragment_discussions, container, false);
@@ -100,18 +101,28 @@ public class DiscussionsFragment extends Fragment {
             public void onClick(View view) {
                 input = v.findViewById(R.id.input);
 
-                FirebaseDatabase.getInstance()
-                        .getReference()
-                        .child("message")
-                        .push()
-                        .setValue(new ChatMessage(input.getText().toString(),
-                                FirebaseAuth.getInstance()
-                                        .getCurrentUser()
-                                        .getDisplayName())
-                        );
+                String text=input.getText().toString();
+                if(text.equals("")|| text.length()==0)
+                {
+                    Toast.makeText(getContext(),"Enter the text",Toast.LENGTH_LONG).show();
+                }
+                else
+                {
+                    FirebaseDatabase.getInstance()
+                            .getReference()
+                            .child("message")
+                            .push()
+                            .setValue(new ChatMessage(input.getText().toString(),
+                                    FirebaseAuth.getInstance()
+                                            .getCurrentUser()
+                                            .getDisplayName())
+                            );
 
-                // Clear the input
-                input.setText("");
+                    // Clear the input
+                    input.setText("");
+
+                }
+
 
             }
         });

@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
                                     .setAvailableProviders(Arrays.asList(
                                             new AuthUI.IdpConfig.GoogleBuilder().build(),
                                             new AuthUI.IdpConfig.EmailBuilder().build())
-                                    )
+                                    ).setTheme(R.style.AppTheme)
                                     .setIsSmartLockEnabled(false)
                                     .build(),
                             RC_SIGN_IN);
