@@ -32,8 +32,7 @@ public class Diary extends AppCompatActivity {
                 String id=FirebaseAuth.getInstance().getUid();
                 data.getReference().child("Diary").child(id).push().setValue(new note_content(et1.getText().toString(),et2.getText().toString()));
                 Toast.makeText(Diary.this,"Your Note is successfully added",Toast.LENGTH_LONG).show();
-                Intent intent=new Intent(Diary.this,growth_diary.class);
-                startActivity(intent);
+                Diary.super.onBackPressed();
 
 
             }

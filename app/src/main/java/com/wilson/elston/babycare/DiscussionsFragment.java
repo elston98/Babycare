@@ -84,6 +84,7 @@ public class DiscussionsFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
@@ -111,12 +112,15 @@ public class DiscussionsFragment extends Fragment {
 
                 // Clear the input
                 input.setText("");
+
             }
         });
 
         listOfMessages=v.findViewById(R.id.list_of_messages);
 
+
         displaychatmessages();
+
         return v;
     }
 
@@ -145,6 +149,12 @@ public class DiscussionsFragment extends Fragment {
         };
 
         listOfMessages.setAdapter(adapter);
+        listOfMessages.smoothScrollToPosition(adapter.getCount()-1);
+        listOfMessages.setTranscriptMode(ListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
+
+
+
+
 
 
     }
