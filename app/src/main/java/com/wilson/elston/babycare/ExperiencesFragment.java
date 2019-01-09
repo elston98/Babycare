@@ -138,17 +138,20 @@ public class ExperiencesFragment extends Fragment {
         mUploads=new ArrayList<>();
         mDatabaseRef= FirebaseDatabase.getInstance().getReference().child("Photos").child(""+id);
 
+
         mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                mUploads.clear();
                 for (DataSnapshot postsnapshot: dataSnapshot.getChildren())
                 {
                     Upload upload=postsnapshot.getValue(Upload.class);
                     mUploads.add(upload);
+                    mAdapter=new ImageAdapter(getContext(),mUploads);
+                    mRecyclerView.setAdapter(mAdapter);
 
                 }
-                mAdapter=new ImageAdapter(getContext(),mUploads);
-                mRecyclerView.setAdapter(mAdapter);
+
 
             }
 
@@ -158,6 +161,9 @@ public class ExperiencesFragment extends Fragment {
                 Toast.makeText(getContext(),databaseError.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
+
+
 
 
         return v;
@@ -199,19 +205,24 @@ public class ExperiencesFragment extends Fragment {
 
 
 
-            StorageReference child=sref.child("Photos").child(id).child(uri.getLastPathSegment());
+            final StorageReference child=sref.child("Photos").child(id).child(uri.getLastPathSegment());
 
             child.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot)
                 {
 
-                  //  Glide.with(getContext()).load(taskSnapshot.getUploadSessionUri().toString()).into(ib);
-                    String link=taskSnapshot.getUploadSessionUri().toString();
-                    Upload upload=new Upload(taskSnapshot.getUploadSessionUri().toString());
-                    FirebaseDatabase.getInstance().getReference().child("Photos").child(id).push().setValue(upload);
-                    Toast.makeText(getActivity(),"Photo Retrieval currently not working",Toast.LENGTH_LONG).show();
-                    dialog.dismiss();
+                    child.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                               Upload upload=new Upload(uri.toString());
+                               FirebaseDatabase.getInstance().getReference().child("Photos").child(id).push().setValue(upload);
+                               dialog.dismiss();
+
+                        }
+                    });
+
+
 
                 }
             }).addOnFailureListener(new OnFailureListener() {
