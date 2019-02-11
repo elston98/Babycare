@@ -14,7 +14,6 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
@@ -42,7 +41,7 @@ public class Details extends AppCompatActivity {
         et=(EditText) findViewById(R.id.et);
 
 
-       name=(EditText) findViewById(R.id.name);
+       name=(EditText) findViewById(R.id.doc_name);
 
         date.setOnClickListener(new View.OnClickListener() {
             @Override

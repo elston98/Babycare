@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -21,8 +20,6 @@ import android.widget.TextView;
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.jar.Attributes;
 
 
 /**
@@ -131,7 +128,7 @@ public class VaccinationFragment extends Fragment {
                 R.layout.vac_details, FirebaseDatabase.getInstance().getReference().child("Vaccination").child(id)) {
             @Override
             protected void populateView(View v, Vaccine model, int position) {
-                na=v.findViewById(R.id.name);
+                na=v.findViewById(R.id.doc_name);
                 date=v.findViewById(R.id.date);
                 na.setText(model.name);
                 date.setText(model.date);

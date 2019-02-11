@@ -30,7 +30,7 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/name"
+        android:id="@+id/doc_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -51,8 +51,8 @@
         android:text="Name:"
         android:textAlignment="center"
         android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/name"
-        app:layout_constraintEnd_toStartOf="@+id/name"
+        app:layout_constraintBaseline_toBaselineOf="@+id/doc_name"
+        app:layout_constraintEnd_toStartOf="@+id/doc_name"
         app:layout_constraintHorizontal_bias="0.642"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -82,7 +82,7 @@
         android:hint="Date"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+        app:layout_constraintTop_toBottomOf="@+id/doc_name" />
 
     <ImageButton
         android:id="@+id/date"
@@ -91,7 +91,7 @@
         android:layout_marginTop="80dp"
         android:scaleType="fitCenter"
         app:layout_constraintStart_toEndOf="@+id/et"
-        app:layout_constraintTop_toBottomOf="@+id/name"
+        app:layout_constraintTop_toBottomOf="@+id/doc_name"
         app:srcCompat="@drawable/cal" />
 
     <Button
