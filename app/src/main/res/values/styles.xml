@@ -6,6 +6,7 @@
         <item name="colorPrimary">#f987C5</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">#F8BBD0</item>
+        <item  name="android:windowDisablePreview">true</item>
         <item name="android:statusBarColor">#FC8EAC</item>
     </style>
 
@@ -13,6 +14,7 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
