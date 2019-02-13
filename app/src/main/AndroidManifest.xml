@@ -35,7 +35,7 @@
         <activity
             android:name=".fourth"
             android:label="@string/title_activity_fourth"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".fifth"
             android:label="@string/title_activity_fifth"
