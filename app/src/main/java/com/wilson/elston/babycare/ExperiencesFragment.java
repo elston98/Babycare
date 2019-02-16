@@ -63,6 +63,9 @@ public class ExperiencesFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+
+    ProgressDialog progressDialog;
     ImageButton storage;
     String link;
    private StorageReference sref;
@@ -138,10 +141,13 @@ public class ExperiencesFragment extends Fragment {
         mUploads=new ArrayList<>();
         mDatabaseRef= FirebaseDatabase.getInstance().getReference().child("Photos").child(""+id);
 
-
+        progressDialog=new ProgressDialog(getContext());
+        progressDialog.setMessage("Loading Chats");
+        progressDialog.show();
         mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
                 mUploads.clear();
                 for (DataSnapshot postsnapshot: dataSnapshot.getChildren())
                 {
@@ -149,6 +155,7 @@ public class ExperiencesFragment extends Fragment {
                     mUploads.add(upload);
                     mAdapter=new ImageAdapter(getContext(),mUploads);
                     mRecyclerView.setAdapter(mAdapter);
+                    progressDialog.dismiss();
 
                 }
 

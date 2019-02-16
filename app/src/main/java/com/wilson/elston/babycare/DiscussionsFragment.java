@@ -1,5 +1,6 @@
 package com.wilson.elston.babycare;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,6 +52,7 @@ public class DiscussionsFragment extends Fragment {
 
     private FirebaseListAdapter<ChatMessage> adapter;
 
+    ProgressDialog progressDialog;
 
     ListView listOfMessages;
     TextView messageText;
@@ -94,7 +97,10 @@ public class DiscussionsFragment extends Fragment {
         // Inflate the layout for this fragment
         final View v= inflater.inflate(R.layout.fragment_discussions, container, false);
 
+
+
         fab =v.findViewById(R.id.fab);
+
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,6 +114,7 @@ public class DiscussionsFragment extends Fragment {
                 }
                 else
                 {
+
                     FirebaseDatabase.getInstance()
                             .getReference()
                             .child("message")
@@ -117,6 +124,7 @@ public class DiscussionsFragment extends Fragment {
                                             .getCurrentUser()
                                             .getDisplayName())
                             );
+
 
                     // Clear the input
                     input.setText("");
@@ -130,7 +138,12 @@ public class DiscussionsFragment extends Fragment {
         listOfMessages=v.findViewById(R.id.list_of_messages);
 
 
+
+        progressDialog=new ProgressDialog(getContext());
+        progressDialog.setMessage("Loading Chats");
+        progressDialog.show();
         displaychatmessages();
+
 
         return v;
     }
@@ -138,12 +151,15 @@ public class DiscussionsFragment extends Fragment {
     private void displaychatmessages()
     {
 
-
-
         adapter = new FirebaseListAdapter<ChatMessage>(getActivity(), ChatMessage.class,
                 R.layout.messages, FirebaseDatabase.getInstance().getReference().child("message")) {
+
+
             @Override
+
             protected void populateView(View v, ChatMessage model, int position) {
+                progressDialog.dismiss();
+
                 // Get references to the views of message.xml
                  messageText = v.findViewById(R.id.message_text);
                 messageUser = v.findViewById(R.id.message_user);
@@ -157,7 +173,9 @@ public class DiscussionsFragment extends Fragment {
                 messageTime.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)",
                         model.getMessageTime()));
             }
+
         };
+
 
         listOfMessages.setAdapter(adapter);
         listOfMessages.smoothScrollToPosition(adapter.getCount()-1);

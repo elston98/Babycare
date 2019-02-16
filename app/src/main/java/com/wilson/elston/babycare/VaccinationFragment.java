@@ -1,5 +1,6 @@
 package com.wilson.elston.babycare;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -40,6 +41,7 @@ public class VaccinationFragment extends Fragment {
     ImageButton logout;
     String email;
    TextView name;
+   ProgressDialog progressDialog;
    TextView mail;
     String id;
     FirebaseListAdapter adapter;
@@ -114,6 +116,10 @@ public class VaccinationFragment extends Fragment {
         id= FirebaseAuth.getInstance().getUid();
         Button time=(Button) v.findViewById(R.id.time);
         list=v.findViewById(R.id.list_of_vaccine);
+
+        progressDialog=new ProgressDialog(getContext());
+        progressDialog.setMessage("Loading Chats");
+        progressDialog.show();
         display_vaccine();
 
 
@@ -128,6 +134,7 @@ public class VaccinationFragment extends Fragment {
                 R.layout.vac_details, FirebaseDatabase.getInstance().getReference().child("Vaccination").child(id)) {
             @Override
             protected void populateView(View v, Vaccine model, int position) {
+                progressDialog.dismiss();
                 na=v.findViewById(R.id.doc_name);
                 date=v.findViewById(R.id.date);
                 na.setText(model.name);

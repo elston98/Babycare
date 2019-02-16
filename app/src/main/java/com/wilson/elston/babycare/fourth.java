@@ -76,7 +76,7 @@ public class fourth extends AppCompatActivity {
 
     }
 
-    @SuppressLint("ResourceType")
+ /*   @SuppressLint("ResourceType")
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.spinner, menu);
@@ -91,7 +91,7 @@ public class fourth extends AppCompatActivity {
         spinner.setAdapter(adapter);
         return true;
 
-    }
+    }*/
 
 
 }
