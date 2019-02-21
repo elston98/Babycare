@@ -15,8 +15,8 @@
 
         <activity
             android:name=".MainActivity"
-            android:theme="@style/AppTheme"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -46,11 +46,12 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".growth_diary"
-            android:label="growth_diary"></activity>
+            android:label="growth_diary" />
         <activity android:name=".Diary" />
         <activity android:name=".content" />
         <activity android:name=".Details" />
-        <activity android:name=".ImagesActivity"></activity>
+        <activity android:name=".ImagesActivity" />
+        <activity android:name=".Appointment"></activity>
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package com.wilson.elston.babycare;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,6 +10,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -22,6 +24,7 @@ import com.firebase.ui.auth.AuthUI;
 public class fourth extends AppCompatActivity {
 
     Spinner spinner;
+    ListView doclist;
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,17 +32,16 @@ public class fourth extends AppCompatActivity {
         setContentView(R.layout.activity_fourth);
 
 
-
-        String[] mobileArray = {"Pediatrician","Pediatric Dentist","Dermatologist","Allergist"};
-
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(fourth.this,R.layout.list_doc,R.id.doc_name,mobileArray);
-
+        doclist=(ListView) findViewById(R.id.doc_list);
+        String[] mobileArray = {"Prajwal","Simran","Ralph","Abaan"};
+        display_list(mobileArray);
 
 
-        ListView doclist=(ListView) findViewById(R.id.doc_list);
+    }
+    public void display_list(String[] mobarr)
+    {
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(fourth.this,R.layout.list_doc,R.id.doc_name,mobarr);
         doclist.setAdapter(adapter);
-
-
 
         doclist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -47,22 +49,47 @@ public class fourth extends AppCompatActivity {
                 String value=adapter.getItem(i);
                 switch (value)
                 {
-                    case "Pediatrician":
+                    case "Prajwal":
                     {
-                        Toast.makeText(fourth.this,"Pediatrician activity will be opened on click",Toast.LENGTH_LONG).show();
+                        Intent intent1=new Intent(fourth.this,Appointment.class);
+                        intent1.putExtra("Doc_Name",value);
+                        startActivity(intent1);
                         break;
                     }
-                    case "Pediatric Dentist":
+                    case "Simran":
                     {
-                        Toast.makeText(fourth.this,"Pediatric Dentist activity will be opened on click",Toast.LENGTH_LONG).show();
+                        Intent intent2=new Intent(fourth.this,Appointment.class);
+                        intent2.putExtra("Doc_Name",value);
+                        startActivity(intent2);
                         break;
                     }
-                    case "Dermatologist":
+                    case "Ralph":
                     {
                         Toast.makeText(fourth.this,"Dermatologist activity will be opened on click",Toast.LENGTH_LONG).show();
                         break;
                     }
-                    case "Allergist":
+                    case "Abaan":
+                    {
+                        Toast.makeText(fourth.this,"Allergist activity will be opened on click",Toast.LENGTH_LONG).show();
+                        break;
+                    }
+                    case "Darwin":
+                    {
+                        Intent intent5=new Intent(fourth.this,Appointment.class);
+                        intent5.putExtra("Doc_Name",value);
+                        startActivity(intent5);
+                        break;
+                    }
+                    case "Aaron":{
+                        Toast.makeText(fourth.this,"Allergist activity will be opened on click",Toast.LENGTH_LONG).show();
+                        break;
+                    }
+                    case "Krishna":
+                    {
+                        Toast.makeText(fourth.this,"Allergist activity will be opened on click",Toast.LENGTH_LONG).show();
+                        break;
+                    }
+                    case "Jibin":
                     {
                         Toast.makeText(fourth.this,"Allergist activity will be opened on click",Toast.LENGTH_LONG).show();
                         break;
@@ -74,26 +101,39 @@ public class fourth extends AppCompatActivity {
         });
 
 
-
-
     }
 
- /*   @SuppressLint("ResourceType")
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.spinner, menu);
-
-        MenuItem item = menu.findItem(R.id.spinner);
-        spinner = (Spinner) MenuItemCompat.getActionView(item);
-        spinner.setPopupBackgroundResource(R.color.pink);
-        spinner.setBackgroundResource(R.color.theme);
-        spinner.setDropDownWidth(200);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(fourth.this,R.array.spinner_item,android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.location, menu);
         return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.Mumbai: {
 
-    }*/
+                String[] mobileArray = {"Prajwal","Simran","Ralph","Abaan"};
+                display_list(mobileArray);
+
+
+                break;
+            }
+            case R.id.Pune:{
+                String[] mobileArray = {"Darwin","Aaron","Krishna","Jibin"};
+                display_list(mobileArray);
+
+            }
+            default:
+                break;
+        }
+        return true;
+    }
+
+
+
 
 
 }
