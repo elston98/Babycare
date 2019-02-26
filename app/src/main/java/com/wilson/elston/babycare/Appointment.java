@@ -6,11 +6,16 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Calendar;
 
@@ -21,6 +26,14 @@ public class Appointment extends AppCompatActivity {
     EditText date;
     TextView name_doc;
     ImageButton app_date;
+    Button save_app;
+    String id;
+
+    String bname;
+    String breason;
+    String bdate;
+    String bdoc;
+
 
     int myear;
     int mmonth;
@@ -41,10 +54,18 @@ public class Appointment extends AppCompatActivity {
         date=(EditText) findViewById(R.id.appointment_date);
         app_date=(ImageButton) findViewById(R.id.app_date);
         name_doc=(TextView) findViewById(R.id.Name_doc);
+        save_app=(Button) findViewById(R.id.save_appointment);
+
+
+
+
+
+
 
         Intent main_intent=getIntent();
-        String name_of_doc=main_intent.getStringExtra("Doc_Name");
+        final String name_of_doc=main_intent.getStringExtra("Doc_Name");
         name_doc.setText(name_of_doc);
+
 
         app_date.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,7 +86,7 @@ public class Appointment extends AppCompatActivity {
                         mday=i2;
                         mmonth=i1+1;
                         myear=i;
-                        timePicker();
+
                     }
                 },myear,mmonth,mday);
                 datePickerDialog.show();
@@ -76,6 +97,17 @@ public class Appointment extends AppCompatActivity {
         });
 
 
+
+        save_app.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                id= FirebaseAuth.getInstance().getUid();
+                FirebaseDatabase.getInstance().getReference().child("Appointments").child(id).push().setValue(new Doc_Appointment(baby_name.getText().toString(),reason.getText().toString(),date.getText().toString(),name_of_doc));
+                Toast.makeText(Appointment.this, "The time will be notified to you by the doctor itself", Toast.LENGTH_SHORT).show();
+
+
+            }
+        });
     }
     public  void timePicker()
     {

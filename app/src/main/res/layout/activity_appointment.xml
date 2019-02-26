@@ -167,4 +167,17 @@
         app:layout_constraintTop_toBottomOf="@+id/appointment_date"
         app:layout_constraintVertical_bias="0.0" />
 
+    <Button
+        android:id="@+id/save_appointment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:text="Save Appointment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Name_doc" />
+
 </android.support.constraint.ConstraintLayout>

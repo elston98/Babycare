@@ -23,7 +23,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".baby_guide" />
+        <activity android:name=".baby_guide"
+            android:label="baby_guide"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".second"
             android:label="@string/title_activity_second"
@@ -43,7 +45,7 @@
         <activity
             android:name=".vaccination"
             android:label="@string/title_activity_sixth"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".growth_diary"
             android:label="growth_diary" />

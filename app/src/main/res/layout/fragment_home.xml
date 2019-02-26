@@ -15,7 +15,7 @@
         android:layout_marginEnd="8dp"
 
         android:layout_marginStart="8dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="44dp"
         android:background="@drawable/shape"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -30,7 +30,7 @@
         android:layout_height="102dp"
 
         android:layout_marginStart="8dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="44dp"
         android:background="@drawable/shape"
         app:layout_constraintEnd_toStartOf="@+id/ib2"
         app:layout_constraintHorizontal_bias="0.5"
@@ -51,25 +51,22 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ib1"
-        app:srcCompat="@drawable/product"
+        app:srcCompat="@drawable/day_care"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/ib6"
         android:layout_width="117dp"
         android:layout_height="102dp"
-        android:layout_marginBottom="16dp"
 
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="44dp"
         android:background="@drawable/shape"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ib5"
         app:layout_constraintTop_toBottomOf="@+id/ib4"
-        app:layout_constraintVertical_bias="0.203"
         app:srcCompat="@drawable/growth"
         tools:ignore="MissingConstraints" />
 
@@ -78,17 +75,14 @@
         android:layout_width="117dp"
         android:layout_height="102dp"
 
-        android:layout_marginBottom="16dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="44dp"
         android:background="@drawable/shape"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/ib6"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ib3"
-        app:layout_constraintVertical_bias="0.203"
-        app:srcCompat="@drawable/day_care"
+        app:srcCompat="@drawable/product"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
@@ -125,7 +119,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
-        android:text="Day Care"
+        android:text="Products"
         android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/ib5"
@@ -185,7 +179,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="68dp"
-        android:text="Products"
+        android:text="DayCare"
         android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/ib3"
