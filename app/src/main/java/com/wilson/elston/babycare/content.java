@@ -23,7 +23,6 @@ public class content extends AppCompatActivity {
         String content=intent.getStringExtra("content");
 
         TextView tvcon=(TextView) findViewById(R.id.tvcon);
-        Toast.makeText(content.this,content,Toast.LENGTH_LONG).show();
         tvcon.setText(content);
     }
 }

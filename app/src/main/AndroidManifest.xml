@@ -25,32 +25,40 @@
         </activity>
         <activity android:name=".baby_guide"
             android:label="baby_guide"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme"/>
         <activity
             android:name=".second"
             android:label="@string/title_activity_second"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".third"
             android:label="@string/title_activity_third"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".fourth"
             android:label="@string/title_activity_fourth"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".fifth"
             android:label="@string/title_activity_fifth"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".vaccination"
             android:label="@string/title_activity_sixth"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".growth_diary"
-            android:label="growth_diary" />
-        <activity android:name=".Diary" />
-        <activity android:name=".content" />
+            android:label="growth_diary"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".Diary"
+            android:parentActivityName=".growth_diary"/>
+        <activity android:name=".content"
+            android:parentActivityName=".growth_diary"/>
         <activity android:name=".Details" />
         <activity android:name=".ImagesActivity" />
         <activity android:name=".Appointment"></activity>

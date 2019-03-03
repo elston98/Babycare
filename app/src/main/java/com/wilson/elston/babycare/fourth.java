@@ -47,6 +47,8 @@ public class fourth extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fourth);
 
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
 
         doclist=(ListView) findViewById(R.id.doc_list);
@@ -99,6 +101,8 @@ public class fourth extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivityForResult(myIntent, 0);
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.Mumbai: {

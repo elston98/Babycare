@@ -2,11 +2,14 @@ package com.wilson.elston.babycare;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -39,6 +42,8 @@ public class second extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         fab=(FloatingActionButton) findViewById(R.id.fab);
 
@@ -102,4 +107,9 @@ public class second extends AppCompatActivity {
         faq_list.setTranscriptMode(ListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
     }
 
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivityForResult(myIntent, 0);
+        return true;
+    }
 }

@@ -1,7 +1,11 @@
 package com.wilson.elston.babycare;
 
+import android.content.Intent;
+import android.drm.DrmStore;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -19,6 +23,8 @@ public class baby_guide extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.baby_guide);
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
 
         Button b1=(Button) findViewById(R.id.b1);
@@ -115,6 +121,11 @@ public class baby_guide extends AppCompatActivity {
                 }
             }
         });
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivityForResult(myIntent, 0);
+        return true;
     }
 
 }

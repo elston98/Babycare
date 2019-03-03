@@ -11,6 +11,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -47,6 +48,9 @@ public class fifth extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fifth);
 
+        android.support.v7.app.ActionBar actionBar=getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         pb1=(ProgressBar) findViewById(R.id.pb1);
 
 
@@ -61,6 +65,12 @@ public class fifth extends AppCompatActivity {
 
 
 
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivityForResult(myIntent, 0);
+        return true;
     }
     public void display_list()
     {

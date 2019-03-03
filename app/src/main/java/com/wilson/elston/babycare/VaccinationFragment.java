@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseListAdapter;
@@ -58,7 +59,7 @@ public class VaccinationFragment extends Fragment {
     int mminute;
     EditText et;
     EditText et3;
-
+    ProgressBar pb5;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -116,10 +117,10 @@ public class VaccinationFragment extends Fragment {
         id= FirebaseAuth.getInstance().getUid();
         Button time=(Button) v.findViewById(R.id.time);
         list=v.findViewById(R.id.list_of_vaccine);
+        pb5=v.findViewById(R.id.pb5);
 
-        progressDialog=new ProgressDialog(getContext());
-        progressDialog.setMessage("Loading Chats");
-        progressDialog.show();
+
+        pb5.setVisibility(View.VISIBLE);
         display_vaccine();
 
 
@@ -134,7 +135,7 @@ public class VaccinationFragment extends Fragment {
                 R.layout.vac_details, FirebaseDatabase.getInstance().getReference().child("Vaccination").child(id)) {
             @Override
             protected void populateView(View v, Vaccine model, int position) {
-                progressDialog.dismiss();
+                pb5.setVisibility(View.INVISIBLE);
                 na=v.findViewById(R.id.doc_name);
                 date=v.findViewById(R.id.date);
                 na.setText(model.name);

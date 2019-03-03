@@ -1,5 +1,6 @@
 package com.wilson.elston.babycare;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
@@ -12,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +32,7 @@ public class growth_diary extends AppCompatActivity {
     TextView title;
     TextView cont;
     String item;
+    ProgressBar pb6;
 
     String id=FirebaseAuth.getInstance().getUid();
     FirebaseListAdapter<note_content> adapter;
@@ -39,41 +42,30 @@ public class growth_diary extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_growth_diary);
 
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
          list=(ListView)findViewById(R.id.lv1);
+         pb6=(ProgressBar) findViewById(R.id.pb6);
 
 
-
-
+         pb6.setVisibility(View.VISIBLE);
         displaynotes();
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                DatabaseReference dref=adapter.getRef(i);
-                final DatabaseReference database = FirebaseDatabase.getInstance().getReference().child("Diary").child(id).child(dref.getKey()).child("content");
-                database.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        item= String.valueOf(dataSnapshot.getValue());
-
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
+                item=adapter.getItem(i).getContent();
                 Intent intent=new Intent(growth_diary.this,content.class);
                 intent.putExtra("content",item);
                 startActivity(intent);
-
             }
         });
 
 
 
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -83,6 +75,9 @@ public class growth_diary extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivityForResult(myIntent, 0);
+
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.vaccination: {
@@ -105,7 +100,7 @@ public class growth_diary extends AppCompatActivity {
             @Override
             protected void populateView(View v, final note_content model, int position)
             {
-
+                    pb6.setVisibility(View.INVISIBLE);
                     title=v.findViewById(R.id.header);
                //cont=v.findViewById(R.id.cont);
                 title.setText(model.getTitle());
