@@ -4,10 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFD1DC"
+    android:background="#FFFFFF"
     android:scrollbars="vertical"
     tools:context=".fifth"
     >
+
+    <ProgressBar
+        android:id="@+id/pb1"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="67dp"
+        android:layout_height="63dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/product_list"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/product_list" />
 
     <ListView
         android:id="@+id/product_list"

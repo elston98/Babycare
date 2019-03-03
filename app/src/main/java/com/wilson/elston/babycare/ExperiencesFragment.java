@@ -19,6 +19,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -64,8 +65,7 @@ public class ExperiencesFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-
-    ProgressDialog progressDialog;
+    ProgressBar pb3;
     ImageButton storage;
     String link;
    private StorageReference sref;
@@ -128,6 +128,7 @@ public class ExperiencesFragment extends Fragment {
         setHasOptionsMenu(true);
         dialog=new ProgressDialog(getActivity());
         dialog.setCanceledOnTouchOutside(false);
+        pb3=v.findViewById(R.id.pb3);
        // ib=v.findViewById(R.id.is);
 
 
@@ -135,15 +136,15 @@ public class ExperiencesFragment extends Fragment {
 
 
         mRecyclerView=v.findViewById(R.id.recycler_view);
+
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         mUploads=new ArrayList<>();
         mDatabaseRef= FirebaseDatabase.getInstance().getReference().child("Photos").child(""+id);
 
-        progressDialog=new ProgressDialog(getContext());
-        progressDialog.setMessage("Loading Chats");
-        progressDialog.show();
+
+        pb3.setVisibility(View.VISIBLE);
         mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -155,7 +156,7 @@ public class ExperiencesFragment extends Fragment {
                     mUploads.add(upload);
                     mAdapter=new ImageAdapter(getContext(),mUploads);
                     mRecyclerView.setAdapter(mAdapter);
-                    progressDialog.dismiss();
+                   pb3.setVisibility(View.INVISIBLE);
 
                 }
 

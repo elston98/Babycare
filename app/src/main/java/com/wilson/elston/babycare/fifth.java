@@ -17,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,9 +36,9 @@ public class fifth extends AppCompatActivity {
 
     private FirebaseListAdapter<Product_details> adapter;
 
-    ProgressDialog progressDialog;
 
 
+    ProgressBar pb1;
     TextView product_name;
    ImageView product_image;
    TextView product_price;
@@ -46,6 +47,8 @@ public class fifth extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fifth);
 
+        pb1=(ProgressBar) findViewById(R.id.pb1);
+
 
 
         product_list=(ListView) findViewById(R.id.product_list);
@@ -53,6 +56,7 @@ public class fifth extends AppCompatActivity {
     //    Integer[] linkarr={R.drawable.product1,R.drawable.product2,R.drawable.product3,R.drawable.product4};
 
 
+        pb1.setVisibility(View.VISIBLE);
         display_list();
 
 
@@ -64,6 +68,7 @@ public class fifth extends AppCompatActivity {
                 FirebaseDatabase.getInstance().getReference().child("Products")) {
             @Override
             protected void populateView(View v, Product_details model, int position) {
+                pb1.setVisibility(View.INVISIBLE);
                 product_name=v.findViewById(R.id.product_name);
                 product_image=v.findViewById(R.id.product_image);
                 product_price=v.findViewById(R.id.prod_price);

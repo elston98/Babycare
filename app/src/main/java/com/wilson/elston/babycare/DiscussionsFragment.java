@@ -12,6 +12,7 @@ import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -52,7 +53,8 @@ public class DiscussionsFragment extends Fragment {
 
     private FirebaseListAdapter<ChatMessage> adapter;
 
-    ProgressDialog progressDialog;
+   ProgressBar pb2;
+
 
     ListView listOfMessages;
     TextView messageText;
@@ -97,9 +99,11 @@ public class DiscussionsFragment extends Fragment {
         // Inflate the layout for this fragment
         final View v= inflater.inflate(R.layout.fragment_discussions, container, false);
 
+        getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
 
         fab =v.findViewById(R.id.fab);
+        pb2=v.findViewById(R.id.pb2);
 
 
         fab.setOnClickListener(new View.OnClickListener() {
@@ -139,9 +143,8 @@ public class DiscussionsFragment extends Fragment {
 
 
 
-        progressDialog=new ProgressDialog(getContext());
-        progressDialog.setMessage("Loading Chats");
-        progressDialog.show();
+
+        pb2.setVisibility(View.VISIBLE);
         displaychatmessages();
 
 
@@ -158,7 +161,7 @@ public class DiscussionsFragment extends Fragment {
             @Override
 
             protected void populateView(View v, ChatMessage model, int position) {
-                progressDialog.dismiss();
+                pb2.setVisibility(View.INVISIBLE);
 
                 // Get references to the views of message.xml
                  messageText = v.findViewById(R.id.message_text);
@@ -178,15 +181,15 @@ public class DiscussionsFragment extends Fragment {
 
 
         listOfMessages.setAdapter(adapter);
+
         listOfMessages.smoothScrollToPosition(adapter.getCount()-1);
         listOfMessages.setTranscriptMode(ListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
 
 
 
 
-
-
     }
+
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
