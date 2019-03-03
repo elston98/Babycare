@@ -26,6 +26,7 @@ public class third extends AppCompatActivity {
     DatabaseReference data;
     TextView cname;
     ImageButton website;
+    ProgressBar pb4;
     ImageButton location;
 
 
@@ -34,11 +35,13 @@ public class third extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third);
         day_care=(ListView) findViewById(R.id.day_care);
+        pb4=(ProgressBar) findViewById(R.id.pb4);
 
 
         Toast.makeText(third.this,"Second Activity",Toast.LENGTH_LONG).show();
 
 
+        pb4.setVisibility(View.VISIBLE);
         displaydaycare();
 
 
@@ -52,7 +55,8 @@ public class third extends AppCompatActivity {
         adapter=new FirebaseListAdapter<Day_Care>(third.this,Day_Care.class,R.layout.day_care_layout,
                 FirebaseDatabase.getInstance().getReference().child("DayCare")) {
             @Override
-            protected void populateView(View v, Day_Care model, int position) {
+            protected void populateView(View v, Day_Care model, final int position) {
+                pb4.setVisibility(View.INVISIBLE);
                 cname=v.findViewById(R.id.cname);
                 website=v.findViewById(R.id.website);
                 location=v.findViewById(R.id.location);
@@ -65,6 +69,14 @@ public class third extends AppCompatActivity {
                         Intent i = new Intent(Intent.ACTION_VIEW);
                         i.setData(url);
                         startActivity(i);
+                    }
+                });
+                location.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                                Uri.parse(adapter.getItem(position).getLocation()));
+                        startActivity(intent);
                     }
                 });
 
