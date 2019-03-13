@@ -123,9 +123,16 @@ public class baby_guide extends AppCompatActivity {
         });
     }
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
-        startActivityForResult(myIntent, 0);
+        switch (item.getItemId())
+        {
+            case android.R.id.home:
+            {
+                onBackPressed();
+                return true;
+            }
+        }
         return true;
+
     }
 
 }

@@ -28,6 +28,7 @@ public class AlarmReceiver  extends BroadcastReceiver{
           PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
           String nm=intent.getExtras().getString("Name");
 
+          createNotificationChannel(context);
           NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context, CHANNEL_ID)
                         .setSmallIcon(R.drawable.main_icon)
                         .setContentTitle("Vaccination Reminder")

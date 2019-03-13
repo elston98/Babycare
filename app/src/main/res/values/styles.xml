@@ -7,10 +7,19 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">#F8BBD0</item>
 
+
         <item  name="android:windowDisablePreview">true</item>
         <item name="android:statusBarColor">#FC8EAC</item>
     </style>
 
+    <style name="Login_Screen" parent="ThemeOverlay.AppCompat.ActionBar">
+
+        <item name="colorPrimary">#f987C5</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">#F8BBD0</item>
+
+
+    </style>
     <style name="spinner">
         <item name="android:background">@color/fui_transparent</item>
         <item name="android:color">#ffffff</item>
@@ -24,5 +33,11 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="login_firebase" parent="FirebaseUI" >
+        <item name="android:colorBackground">#F8BBD0</item>
+    </style>
+
+    <style name="firebase" parent="login_firebase" />
 
 </resources>

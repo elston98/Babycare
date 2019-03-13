@@ -75,8 +75,7 @@ public class growth_diary extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
-        startActivityForResult(myIntent, 0);
+
 
         // Handle item selection
         switch (item.getItemId()) {
@@ -84,6 +83,11 @@ public class growth_diary extends AppCompatActivity {
 
                 Intent intent1 = new Intent(growth_diary.this, Diary.class);
                 startActivity(intent1);
+                break;
+            }
+            case android.R.id.home:
+            {
+                onBackPressed();
                 break;
             }
             default:

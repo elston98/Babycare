@@ -101,8 +101,7 @@ public class fourth extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
-        startActivityForResult(myIntent, 0);
+
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.Mumbai: {
@@ -143,18 +142,21 @@ public class fourth extends AppCompatActivity {
                     }
                 };
                 doclist.setAdapter(adapter);
+                break;
 
             }
+            case android.R.id.home:
+            {
+                onBackPressed();
+                break;
+            }
             default: {
-
                 break;
             }
         }
+
         return true;
     }
-
-
-
 
 
 }
