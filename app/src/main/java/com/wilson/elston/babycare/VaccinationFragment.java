@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -21,7 +22,11 @@ import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 /**
@@ -66,6 +71,7 @@ public class VaccinationFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    DatabaseReference databaseReference;
     private String CHANNEL_ID="123";
 
     public VaccinationFragment() {
@@ -119,6 +125,8 @@ public class VaccinationFragment extends Fragment {
         list=v.findViewById(R.id.list_of_vaccine);
         pb5=v.findViewById(R.id.pb5);
 
+        databaseReference=FirebaseDatabase.getInstance().getReference().child("Vaccination");
+
 
         pb5.setVisibility(View.VISIBLE);
         display_vaccine();
@@ -146,6 +154,17 @@ public class VaccinationFragment extends Fragment {
 
         };
 
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                pb5.setVisibility(View.INVISIBLE);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
         list.setAdapter(adapter);
 
 

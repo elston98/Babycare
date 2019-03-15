@@ -1,6 +1,8 @@
 package com.wilson.elston.babycare;
 
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,6 +11,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
@@ -86,22 +89,33 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
         fragmentTransaction1.commit();
 
 
+        ConnectivityManager connectivityManager=(ConnectivityManager) getSystemService(MainActivity.CONNECTIVITY_SERVICE);
+        final NetworkInfo networkInfo=connectivityManager.getActiveNetworkInfo();
         mauthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                if (firebaseAuth.getCurrentUser() == null) {
-                    startActivityForResult(
-                            AuthUI.getInstance()
-                                    .createSignInIntentBuilder()
-                                    .setAvailableProviders(Arrays.asList(
-                                            new AuthUI.IdpConfig.GoogleBuilder().build(),
-                                            new AuthUI.IdpConfig.EmailBuilder().build())
-                                    ).setTheme(R.style.AppTheme)
-                                    .setLogo(R.drawable.icon_big)
-                                    .setIsSmartLockEnabled(false)
-                                    .build(),
-                            RC_SIGN_IN);
+                if(networkInfo!=null && networkInfo.isConnected())
+                {
+                    if (firebaseAuth.getCurrentUser() == null) {
+                        startActivityForResult(
+                                AuthUI.getInstance()
+                                        .createSignInIntentBuilder()
+                                        .setAvailableProviders(Arrays.asList(
+                                                new AuthUI.IdpConfig.GoogleBuilder().build(),
+                                                new AuthUI.IdpConfig.EmailBuilder().build())
+                                        ).setTheme(R.style.AppTheme)
+                                        .setLogo(R.drawable.icon_big)
+                                        .setIsSmartLockEnabled(false)
+                                        .build(),
+                                RC_SIGN_IN);
+                    }
                 }
+                else
+                {
+                    Toast.makeText(MainActivity.this, "No Internet Connection.", Toast.LENGTH_LONG).show();
+                    finish();
+                }
+
             }
         };
 

@@ -32,6 +32,7 @@ public class growth_diary extends AppCompatActivity {
     TextView title;
     TextView cont;
     String item;
+    DatabaseReference databaseReference;
     ProgressBar pb6;
 
     String id=FirebaseAuth.getInstance().getUid();
@@ -116,6 +117,18 @@ public class growth_diary extends AppCompatActivity {
             }
 
         };
+        databaseReference=FirebaseDatabase.getInstance().getReference().child("Diary");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                pb6.setVisibility(View.INVISIBLE);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
         list.setAdapter(adapter);
 
     }

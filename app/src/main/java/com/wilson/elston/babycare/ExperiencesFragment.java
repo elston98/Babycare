@@ -150,7 +150,7 @@ public class ExperiencesFragment extends Fragment {
         mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
+                pb3.setVisibility(View.INVISIBLE);
                 mUploads.clear();
                 for (DataSnapshot postsnapshot: dataSnapshot.getChildren())
                 {
@@ -158,7 +158,7 @@ public class ExperiencesFragment extends Fragment {
                     mUploads.add(upload);
                     mAdapter=new ImageAdapter(getContext(),mUploads);
                     mRecyclerView.setAdapter(mAdapter);
-                   pb3.setVisibility(View.INVISIBLE);
+
 
 
                 }
