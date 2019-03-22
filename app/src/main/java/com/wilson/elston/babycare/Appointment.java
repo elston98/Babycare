@@ -24,6 +24,7 @@ public class Appointment extends AppCompatActivity {
     EditText baby_name;
     EditText reason;
     EditText date;
+    EditText contact_no;
     TextView name_doc;
     ImageButton app_date;
     Button save_app;
@@ -52,6 +53,7 @@ public class Appointment extends AppCompatActivity {
         baby_name=(EditText) findViewById(R.id.baby_name);
         reason=(EditText) findViewById(R.id.app_reason );
         date=(EditText) findViewById(R.id.appointment_date);
+        contact_no=(EditText) findViewById(R.id.contact_no);
         app_date=(ImageButton) findViewById(R.id.app_date);
         name_doc=(TextView) findViewById(R.id.Name_doc);
         save_app=(Button) findViewById(R.id.save_appointment);
@@ -102,7 +104,7 @@ public class Appointment extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 id= FirebaseAuth.getInstance().getUid();
-                FirebaseDatabase.getInstance().getReference().child("Appointments").child(name_of_doc).push().setValue(new Doc_Appointment(baby_name.getText().toString(),reason.getText().toString(),date.getText().toString(),name_of_doc));
+                FirebaseDatabase.getInstance().getReference().child("Appointments").child(name_of_doc).push().setValue(new Doc_Appointment(baby_name.getText().toString(),reason.getText().toString(),date.getText().toString(),name_of_doc,contact_no.getText().toString()));
                 Toast.makeText(Appointment.this, "The time will be notified to you by the doctor itself", Toast.LENGTH_LONG).show();
                 Appointment.super.onBackPressed();
 

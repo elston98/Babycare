@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:hint="Baby's Name"
         android:inputType="textPersonName"
@@ -59,17 +59,15 @@
         android:id="@+id/textView28"
         android:layout_width="0dp"
         android:layout_height="56dp"
-        android:layout_marginBottom="51dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="51dp"
         android:gravity="center_vertical"
         android:text="Reason for Appointment"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView32"
+        app:layout_constraintBottom_toBottomOf="@+id/app_reason"
         app:layout_constraintEnd_toStartOf="@+id/app_reason"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView26" />
+        app:layout_constraintTop_toTopOf="@+id/app_reason" />
 
     <EditText
         android:id="@+id/app_reason"
@@ -77,7 +75,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:hint="Reason"
         android:inputType="textPersonName"
@@ -107,7 +105,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:hint="Date"
         android:inputType="textPersonName"
@@ -153,19 +151,16 @@
         android:id="@+id/Name_doc"
         android:layout_width="196dp"
         android:layout_height="41dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.953"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appointment_date"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/contact_no" />
 
     <Button
         android:id="@+id/save_appointment"
@@ -173,11 +168,43 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="44dp"
         android:text="Save Appointment"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Name_doc" />
+
+    <EditText
+        android:id="@+id/contact_no"
+        android:layout_width="196dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="Contact No"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appointment_date" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="0dp"
+        android:layout_height="38dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Contact No"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/contact_no"
+        app:layout_constraintEnd_toStartOf="@+id/contact_no"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/contact_no"
+        app:layout_constraintVertical_bias="0.428" />
 
 </android.support.constraint.ConstraintLayout>
