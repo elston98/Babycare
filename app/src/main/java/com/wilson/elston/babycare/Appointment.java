@@ -102,7 +102,7 @@ public class Appointment extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 id= FirebaseAuth.getInstance().getUid();
-                FirebaseDatabase.getInstance().getReference().child("Appointments").child(id).push().setValue(new Doc_Appointment(baby_name.getText().toString(),reason.getText().toString(),date.getText().toString(),name_of_doc));
+                FirebaseDatabase.getInstance().getReference().child("Appointments").child(name_of_doc).push().setValue(new Doc_Appointment(baby_name.getText().toString(),reason.getText().toString(),date.getText().toString(),name_of_doc));
                 Toast.makeText(Appointment.this, "The time will be notified to you by the doctor itself", Toast.LENGTH_LONG).show();
                 Appointment.super.onBackPressed();
 
