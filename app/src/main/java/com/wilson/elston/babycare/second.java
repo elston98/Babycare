@@ -45,67 +45,67 @@ public class second extends AppCompatActivity {
         ActionBar actionBar=getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        fab=(FloatingActionButton) findViewById(R.id.fab);
-
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                input = (EditText) findViewById(R.id.input);
-
-                String text=input.getText().toString();
-                if(text.equals("")|| text.length()==0)
-                {
-                    Toast.makeText(second.this,"Enter the text",Toast.LENGTH_LONG).show();
-                }
-                else
-                {
-
-                    FirebaseDatabase.getInstance()
-                            .getReference()
-                            .child("Posts")
-                            .push()
-                            .setValue(new Posts(input.getText().toString(),
-                                    FirebaseAuth.getInstance()
-                                            .getCurrentUser()
-                                            .getDisplayName())
-                            );
-
-
-                    // Clear the input
-                    input.setText("");
-
-                }
-
-
-            }
-        });
-        faq_list=(ListView) findViewById(R.id.faq_list);
-
-        displayfaq();
-
+//        fab=(FloatingActionButton) findViewById(R.id.fab);
+//
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                input = (EditText) findViewById(R.id.input);
+//
+//                String text=input.getText().toString();
+//                if(text.equals("")|| text.length()==0)
+//                {
+//                    Toast.makeText(second.this,"Enter the text",Toast.LENGTH_LONG).show();
+//                }
+//                else
+//                {
+//
+//                    FirebaseDatabase.getInstance()
+//                            .getReference()
+//                            .child("Posts")
+//                            .push()
+//                            .setValue(new Posts(input.getText().toString(),
+//                                    FirebaseAuth.getInstance()
+//                                            .getCurrentUser()
+//                                            .getDisplayName())
+//                            );
+//
+//
+//                    // Clear the input
+//                    input.setText("");
+//
+//                }
+//
+//
+//            }
+//        });
+//        faq_list=(ListView) findViewById(R.id.faq_list);
+//
+//        displayfaq();
+//
 
 
 
 
     }
-    @SuppressLint("NewApi")
-    private void displayfaq() {
-
-        adapter=new FirebaseListAdapter<Posts>(second.this,Posts.class,R.layout.post,FirebaseDatabase.getInstance().getReference().child("Posts")) {
-            @Override
-            protected void populateView(View v, Posts model, int position) {
-                postsText=v.findViewById(R.id.posts_text);
-                postsUser=v.findViewById(R.id.posts_user);
-
-                postsUser.setText(model.getPostUser());
-                postsText.setText(model.getPostText());
-
-            }
-        };
-        faq_list.setAdapter(adapter);
-        faq_list.smoothScrollToPosition(adapter.getCount()-1);
-        faq_list.setTranscriptMode(ListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
-    }
+//    @SuppressLint("NewApi")
+//    private void displayfaq() {
+//
+//        adapter=new FirebaseListAdapter<Posts>(second.this,Posts.class,R.layout.post,FirebaseDatabase.getInstance().getReference().child("Posts")) {
+//            @Override
+//            protected void populateView(View v, Posts model, int position) {
+//                postsText=v.findViewById(R.id.posts_text);
+//                postsUser=v.findViewById(R.id.posts_user);
+//
+//                postsUser.setText(model.getPostUser());
+//                postsText.setText(model.getPostText());
+//
+//            }
+//        };
+//        faq_list.setAdapter(adapter);
+//        faq_list.smoothScrollToPosition(adapter.getCount()-1);
+//        faq_list.setTranscriptMode(ListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
+//    }
 
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId())
