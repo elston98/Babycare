@@ -56,9 +56,6 @@ public class fifth extends AppCompatActivity {
 
 
         product_list=(ListView) findViewById(R.id.product_list);
-       // String[] mobarr={"P1","P2","P3","P4"};
-    //    Integer[] linkarr={R.drawable.product1,R.drawable.product2,R.drawable.product3,R.drawable.product4};
-
 
         pb1.setVisibility(View.VISIBLE);
         display_list();
@@ -96,7 +93,7 @@ public class fifth extends AppCompatActivity {
                 product_name.setText(model.getProduct_Name());
                 product_price.setText(model.getProduct_Price());
                 Glide.with(fifth.this).load(model.getImage_url()).into(product_image);
-             //   Toast.makeText(mActivity, ""+model.getProduct_Name(), Toast.LENGTH_SHORT).show();
+             //   glide is used to display the image from the database in the imageview of the xml file.
 
 
 
@@ -111,9 +108,9 @@ public class fifth extends AppCompatActivity {
                 String value= String.valueOf(adapter.getItem(i).getProduct_Name());
 
                 Uri url=Uri.parse(adapter.getItem(i).getApp_Url());
-
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, url);
                 startActivity(browserIntent);
+                //This opens the link of the item clicked in the browser or in the app is the app is present.
 
             }
 
@@ -126,6 +123,6 @@ public class fifth extends AppCompatActivity {
 
 
 
-    }
+    }//Display the list of the products that are already present in the firebase database
 
 }

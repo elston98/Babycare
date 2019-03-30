@@ -40,9 +40,9 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
 
     @Override
     public void onBindViewHolder(ImageViewHolder holder, int position) {
-        Upload uploadCurrent = mUploads.get(position);
-       // Picasso.get().load(uploadCurrent.getmImageUrl()).into(holder.imageView);
+        Upload uploadCurrent = mUploads.get(position); //this gets the url of all the image links in the database
         Glide.with(mContext).load(uploadCurrent.getmImageUrl()).into(holder.imageView);
+        //Glide is used to display all the images into the imageview by loading the url into it.
     }
 
     @Override

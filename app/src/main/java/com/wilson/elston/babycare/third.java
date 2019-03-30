@@ -86,6 +86,7 @@ public class third extends AppCompatActivity {
                         startActivity(i);
                     }
                 });
+                //this will redirect the user to the browser which open the website of the day care center.
                 location.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -94,10 +95,12 @@ public class third extends AppCompatActivity {
                         startActivity(intent);
                     }
                 });
+                //this will redirect the user to google maps if present and direct the location of day care center
 
 
             }
         };
         day_care.setAdapter(adapter);
     }
+    //this method is used to display all the day care centers from the firebase database in a list format.
 }

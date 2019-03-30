@@ -31,8 +31,9 @@ public class Diary extends AppCompatActivity {
                 FirebaseDatabase data=FirebaseDatabase.getInstance();
                 String id=FirebaseAuth.getInstance().getUid();
                 data.getReference().child("Diary").child(id).push().setValue(new note_content(et1.getText().toString(),et2.getText().toString()));
+                //content and the title of the note is saved to the database
                 Toast.makeText(Diary.this,"Your Note is successfully added",Toast.LENGTH_LONG).show();
-                Diary.super.onBackPressed();
+                Diary.super.onBackPressed(); //To go the previous activity once the note is saved.
 
 
             }

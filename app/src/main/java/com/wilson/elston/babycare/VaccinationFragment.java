@@ -169,6 +169,7 @@ public class VaccinationFragment extends Fragment {
 
 
     }
+    //this function will display the list of vaccinations the user has saved from the firebase database.
 
 
 

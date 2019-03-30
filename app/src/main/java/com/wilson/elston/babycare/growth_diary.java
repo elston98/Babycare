@@ -132,5 +132,6 @@ public class growth_diary extends AppCompatActivity {
         list.setAdapter(adapter);
 
     }
+    //this function is used to display the title of the note that is stored in the firebase database in list format
 }
 

@@ -131,7 +131,7 @@ public class ExperiencesFragment extends Fragment {
         dialog=new ProgressDialog(getActivity());
         dialog.setCanceledOnTouchOutside(false);
         pb3=v.findViewById(R.id.pb3);
-       // ib=v.findViewById(R.id.is);
+
 
 
         setHasOptionsMenu(true);
@@ -141,6 +141,7 @@ public class ExperiencesFragment extends Fragment {
 
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
+        //specifying the layout in which the photos are to be displayed i.e in a grid format.
 
         mUploads=new ArrayList<>();
         mDatabaseRef= FirebaseDatabase.getInstance().getReference().child("Photos").child(""+id);
@@ -159,9 +160,7 @@ public class ExperiencesFragment extends Fragment {
                     mAdapter=new ImageAdapter(getContext(),mUploads);
                     mRecyclerView.setAdapter(mAdapter);
 
-
-
-                }
+                }//get the image from the database and call the imageadapter to display the image.
 
 
             }
@@ -205,7 +204,8 @@ public class ExperiencesFragment extends Fragment {
     public void onActivityResult(int requestcode, int resultcode, Intent data)
     {
         super.onActivityResult(requestcode,resultcode,data);
-        if(requestcode==GALLERY && resultcode==RESULT_OK)
+        if(requestcode==GALLERY && resultcode==RESULT_OK) //if the user selects an image from the gallery
+                                                            //the if condition will get executed.
         {
             dialog.setMessage("Uploading");
             dialog.show();
@@ -217,6 +217,7 @@ public class ExperiencesFragment extends Fragment {
 
 
             final StorageReference child=sref.child("Photos").child(id).child(uri.getLastPathSegment());
+            //adding the image file to the firebase storage
 
             child.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
@@ -231,7 +232,9 @@ public class ExperiencesFragment extends Fragment {
                                dialog.dismiss();
 
                         }
-                    });
+                    });//once the image is uploaded to the storage, this stores the downloadurl assigned to that
+                        //image in the firebase database.
+                    //With the help of this download url from the firebase database images can be displayed.
 
 
 

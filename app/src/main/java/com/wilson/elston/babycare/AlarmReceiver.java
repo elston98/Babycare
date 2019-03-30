@@ -35,13 +35,12 @@ public class AlarmReceiver  extends BroadcastReceiver{
                         .setAutoCancel(true)
                         .setContentText("Vaccination of "+nm.toString()+" is due")
                         .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                        // Set the intent that will fire when the user taps the notification
-                        .setContentIntent(pendingIntent);
+                        .setContentIntent(pendingIntent); //customising the notification
 
                 NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
                 Random ran=new Random();
         int notificationId= ran.nextInt(100);
-        notificationManager.notify(notificationId,mBuilder.build());
+        notificationManager.notify(notificationId,mBuilder.build()); //function to generate notifications
 
             }
 
@@ -60,7 +59,7 @@ public class AlarmReceiver  extends BroadcastReceiver{
             NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(channel);
         }
-    }
+    } //This is to generate notifications on Android 8+
 
 }
 

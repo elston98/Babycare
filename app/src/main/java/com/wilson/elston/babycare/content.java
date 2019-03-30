@@ -20,9 +20,10 @@ public class content extends AppCompatActivity {
         setContentView(R.layout.activity_content);
 
         Intent intent=getIntent();
-        String content=intent.getStringExtra("content");
+        String content=intent.getStringExtra("content"); //gettting the content of the note from the previous
+                                                                //activity.
 
         TextView tvcon=(TextView) findViewById(R.id.tvcon);
-        tvcon.setText(content);
+        tvcon.setText(content);     //displaying the content of the respective note.
     }
 }

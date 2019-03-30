@@ -91,7 +91,8 @@ public class fourth extends AppCompatActivity {
             }
         };
         doclist.setAdapter(adapter);
-    }
+    }//based on the location selected by the user the list of doctors is displayed with their name and
+        //qualification from the firebase database
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

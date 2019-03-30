@@ -119,7 +119,7 @@ public class DiscussionsFragment extends Fragment {
                 input = v.findViewById(R.id.input);
 
                 String text=input.getText().toString();
-                if(text.equals("")|| text.length()==0)
+                if(text.equals("")|| text.length()==0) //to make sure the user doesn't enter empty text
                 {
                     Toast.makeText(getContext(),"Enter the text",Toast.LENGTH_LONG).show();
                 }
@@ -134,11 +134,11 @@ public class DiscussionsFragment extends Fragment {
                                     FirebaseAuth.getInstance()
                                             .getCurrentUser()
                                             .getDisplayName())
-                            );
+                            ); //add the message to the database with the user name and the message
 
 
                     // Clear the input
-                    input.setText("");
+                    input.setText(""); //to empty the textbox after the user has  sent the message.
 
                 }
 
@@ -206,7 +206,7 @@ public class DiscussionsFragment extends Fragment {
 
 
 
-    }
+    } //to display the messages in list view format to the user with the message,username and the time
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

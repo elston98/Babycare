@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
                     return true;
 
             }
+            //these cases contain the fragments which are present in the bottom navigation bar
             return false;
         }
     };
@@ -112,11 +113,15 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
                                 RC_SIGN_IN);
                     }
                 }
+                //the main if condition checks if the network connectin is switched on
+                //if the internet connection is on it will then check if the user is logged in via the second
+                //if condition.
                 else
                 {
                     AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
                     alertDialogBuilder.setMessage("No Internet Connection");
-                    alertDialogBuilder.setNegativeButton("Okay", new DialogInterface.OnClickListener() {
+                    alertDialogBuilder.setCancelable(false);
+                    alertDialogBuilder.setNegativeButton("Exit", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             finish();
@@ -125,6 +130,8 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
                     AlertDialog alertDialog=alertDialogBuilder.create();
                     alertDialog.show();
                 }
+                //else condition will execute only if the internet connection is not switched on
+                //it will generate an alert dialog and exit the app when the user clicks EXIT.
 
             }
         };
@@ -155,6 +162,9 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
             }
         }
     }
+    //this method is used to check if the user has signed in or not
+    //if the user is signed in the if condition will be executed and the users data will be added to the database
+    //or else the a toast message will be displayed
 
     @Override
     protected void onResume() {
