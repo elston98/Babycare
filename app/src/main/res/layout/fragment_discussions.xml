@@ -28,7 +28,7 @@
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="67dp"
-        android:layout_height="38dp"
+        android:layout_height="42dp"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="5dp"
         android:clickable="true"
@@ -40,7 +40,7 @@
         app:layout_constraintHorizontal_bias="0.949"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textInputLayout"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.333" />
 
     <ListView
         android:id="@+id/list_of_messages"
@@ -63,7 +63,7 @@
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/textInputLayout"
-        android:layout_width="368dp"
+        android:layout_width="293dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="52dp"
         android:layout_marginEnd="8dp"

@@ -11,11 +11,11 @@
         tools:ignore="MenuTitle">
 
         <menu>
-            <item
-                android:id="@+id/profile"
-                android:orderInCategory="100"
-                android:title="Profile"
-                app:showAsAction="always" />
+            <!--<item-->
+                <!--android:id="@+id/profile"-->
+                <!--android:orderInCategory="100"-->
+                <!--android:title="Profile"-->
+                <!--app:showAsAction="always" />-->
 
             <item
                 android:id="@id/logout"

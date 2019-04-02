@@ -65,8 +65,7 @@
         <activity android:name=".Details" />
         <activity android:name=".ImagesActivity" />
         <activity android:name=".Appointment" />
-        <activity android:name=".Profile"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+
     </application>
 
 </manifest>

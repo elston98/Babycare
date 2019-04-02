@@ -153,9 +153,9 @@ public class HomeFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.profile:
-                Toast.makeText(getContext(),"This is the Profile option",Toast.LENGTH_LONG).show();
-                break;
+//            case R.id.profile:
+//                Toast.makeText(getContext(),"This is the Profile option",Toast.LENGTH_LONG).show();
+//                break;
             case R.id.logout:
                AuthUI.getInstance().signOut(getContext());
                 break;

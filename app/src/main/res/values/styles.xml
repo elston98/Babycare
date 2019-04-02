@@ -11,6 +11,19 @@
         <item  name="android:windowDisablePreview">true</item>
         <item name="android:statusBarColor">#FC8EAC</item>
     </style>
+    <style name="Blue_Theme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#0000FF</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">#F8BBD0</item>
+
+
+        <item  name="android:windowDisablePreview">true</item>
+        <item name="android:statusBarColor">#FC8EAC</item>
+    </style>
+
+
+
 
     <style name="Login_Screen" parent="ThemeOverlay.AppCompat.ActionBar">
 
