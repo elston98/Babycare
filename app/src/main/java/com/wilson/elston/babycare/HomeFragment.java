@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -140,10 +141,19 @@ public class HomeFragment extends Fragment {
             }
         });
         setHasOptionsMenu(true);
+
+
         return v;
 
     }
 
+
+    public void onBackPressed() {
+        // super.onBackPressed(); commented this line in order to disable back press
+        //Write your code here
+        getActivity().finish();
+
+    }
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
         menuInflater.inflate(R.menu.home_menu, menu);
@@ -158,6 +168,7 @@ public class HomeFragment extends Fragment {
 //                break;
             case R.id.logout:
                AuthUI.getInstance().signOut(getContext());
+
                 break;
             default:
                 break;
@@ -165,6 +176,7 @@ public class HomeFragment extends Fragment {
         }
         return  true;
     }
+
 
         // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

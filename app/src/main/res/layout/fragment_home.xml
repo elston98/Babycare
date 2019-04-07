@@ -45,7 +45,7 @@
         android:layout_height="102dp"
 
         android:layout_marginStart="8dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/shape"
         app:layout_constraintEnd_toStartOf="@+id/ib4"
         app:layout_constraintHorizontal_bias="0.5"
@@ -59,14 +59,17 @@
         android:layout_width="117dp"
         android:layout_height="102dp"
 
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/shape"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ib5"
         app:layout_constraintTop_toBottomOf="@+id/ib4"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/growth"
         tools:ignore="MissingConstraints" />
 
@@ -75,13 +78,16 @@
         android:layout_width="117dp"
         android:layout_height="102dp"
 
+        android:layout_marginBottom="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/shape"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/ib6"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ib3"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/product"
         tools:ignore="MissingConstraints" />
 
@@ -92,7 +98,7 @@
 
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/shape"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

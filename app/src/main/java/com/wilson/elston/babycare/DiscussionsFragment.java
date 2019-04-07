@@ -104,7 +104,7 @@ public class DiscussionsFragment extends Fragment {
         // Inflate the layout for this fragment
         final View v= inflater.inflate(R.layout.fragment_discussions, container, false);
 
-        getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+        getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN | WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
 
         fab =v.findViewById(R.id.fab);

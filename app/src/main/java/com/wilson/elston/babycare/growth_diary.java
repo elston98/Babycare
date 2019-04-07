@@ -35,6 +35,7 @@ public class growth_diary extends AppCompatActivity {
     DatabaseReference databaseReference;
     ProgressBar pb6;
 
+    String note_title;
     String id=FirebaseAuth.getInstance().getUid();
     FirebaseListAdapter<note_content> adapter;
     @Override
@@ -59,6 +60,7 @@ public class growth_diary extends AppCompatActivity {
                 item=adapter.getItem(i).getContent();
                 Intent intent=new Intent(growth_diary.this,content.class);
                 intent.putExtra("content",item);
+                intent.putExtra("note_title",note_title);
                 startActivity(intent);
             }
         });
@@ -108,6 +110,7 @@ public class growth_diary extends AppCompatActivity {
                     pb6.setVisibility(View.INVISIBLE);
                     title=v.findViewById(R.id.header);
                //cont=v.findViewById(R.id.cont);
+                 note_title=model.getTitle();
                 title.setText(model.getTitle());
 
 

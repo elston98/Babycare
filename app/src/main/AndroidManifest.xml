@@ -25,26 +25,26 @@
         </activity>
         <activity
             android:name=".baby_guide"
-            android:label="baby_guide"
+            android:label="Baby Guide"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".second"
-            android:label="@string/title_activity_second"
+            android:label="FAQ"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".third"
-            android:label="@string/title_activity_third"
+            android:label="Day Care Centers"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".fourth"
-            android:label="@string/title_activity_fourth"
+            android:label="Health Care"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".fifth"
-            android:label="@string/title_activity_fifth"
+            android:label="Products"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme" />
         <activity
@@ -54,7 +54,7 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".growth_diary"
-            android:label="growth_diary"
+            android:label="Growth Diary"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".Diary"
@@ -64,7 +64,8 @@
             android:parentActivityName=".growth_diary" />
         <activity android:name=".Details" />
         <activity android:name=".ImagesActivity" />
-        <activity android:name=".Appointment" />
+        <activity android:name=".Appointment"
+            android:label="Appointment"/>
 
     </application>
 
