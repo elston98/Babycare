@@ -24,12 +24,12 @@
         android:id="@+id/navigation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#FC8EAC"
+        android:background="#eff987c5"
         app:itemIconTint="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/navigation"
-        app:itemTextColor="#000000"/>
+        app:itemTextColor="#ffffff"/>
 
 </android.support.constraint.ConstraintLayout>

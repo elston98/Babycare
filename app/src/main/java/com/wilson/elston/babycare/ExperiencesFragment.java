@@ -119,7 +119,7 @@ public class ExperiencesFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
@@ -162,6 +162,16 @@ public class ExperiencesFragment extends Fragment {
 
                 }//get the image from the database and call the imageadapter to display the image.
 
+                mAdapter.setOnItemClickListener(new ImageAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(int position) {
+                        Upload item_pos=mUploads.get(position);
+                        Intent intent=new Intent(getContext(),Memories_Display.class);
+                        intent.putExtra("Url",item_pos.getmImageUrl());
+                        startActivity(intent);
+
+                    }
+                });
 
             }
 
@@ -171,10 +181,6 @@ public class ExperiencesFragment extends Fragment {
                 Toast.makeText(getContext(),databaseError.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
-
 
         return v;
     }

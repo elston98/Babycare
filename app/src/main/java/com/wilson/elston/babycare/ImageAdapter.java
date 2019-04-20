@@ -14,17 +14,39 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHolder> {
+    private OnItemClickListener onItemClickListener;
+    public interface OnItemClickListener{
+        void onItemClick(int position);
+    }
     private Context mContext;
     private List<Upload> mUploads;
+
+    public void setOnItemClickListener(OnItemClickListener listener){
+        onItemClickListener=listener;
+    }
 
     public class ImageViewHolder extends RecyclerView.ViewHolder {
 
         public ImageView imageView;
 
-        public ImageViewHolder(View itemView) {
+        public ImageViewHolder(View itemView, final OnItemClickListener listener) {
             super(itemView);
 
             imageView = itemView.findViewById(R.id.image_view_upload);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(listener!=null)
+                    {
+                        int pos=getAdapterPosition();
+                        if(pos!=RecyclerView.NO_POSITION)
+                        {
+                            listener.onItemClick(pos);
+                        }
+                    }
+                }
+            });
         }
     }
     public ImageAdapter(Context context, List<Upload> uploads) {
@@ -35,7 +57,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
     @Override
     public ImageViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(mContext).inflate(R.layout.image_item, parent, false);
-        return new ImageViewHolder(v);
+        return new ImageViewHolder(v,onItemClickListener);
     }
 
     @Override
