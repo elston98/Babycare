@@ -1,8 +1,35 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">BabyCare</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+
+
+    <string name="Bonding_Soothing" tools:ignore="StringEscaping">
+
+Bonding, probably one of the most pleasurable parts of infant care, happens during the sensitive time in the first hours and days after birth when parents make a deep connection with their infant. Physical closeness can promote an emotional connection.
+
+For infants, the attachment contributes to their emotional growth, which also affects their development in other areas, such as physical growth. Another way to think of bonding is "falling in love" with your baby. Children thrive from having a parent or other adult in their life who loves them unconditionally.
+
+Begin bonding by cradling your baby and gently stroking him or her in different patterns. Both you and your partner can also take the opportunity to be "skin-to-skin," holding your newborn against your own skin while feeding or cradling.
+
+Babies, especially premature babies and those with medical problems, may respond to infant massage. Certain types of massage may enhance bonding and help with infant growth and development. Many books and videos cover infant massage — ask your doctor for recommendations. Be careful, however — babies are not as strong as adults, so massage your baby gently.
+
+Babies usually love vocal sounds, such as talking, babbling, singing, and cooing. Your baby will probably also love listening to music. Baby rattles and musical mobiles are other good ways to stimulate your infant's hearing. If your little one is being fussy, try singing, reciting poetry and nursery rhymes, or reading aloud as you sway or rock your baby gently in a chair.
+
+Some babies can be unusually sensitive to touch, light, or sound, and might startle and cry easily, sleep less than expected, or turn their faces away when someone speaks or sings to them. If that's the case with your baby, keep noise and light levels low to moderate.
+
+Swaddling, which works well for some babies during their first few weeks, is another soothing technique first-time parents should learn. Proper swaddling keeps a baby's arms close to the body while allowing for some movement of the legs. Not only does swaddling keep a baby warm, but it seems to give most newborns a sense of security and comfort. Swaddling also may help limit the startle reflex, which can wake a baby.
+
+Here's how to swaddle a baby:
+
+    Spread out the receiving blanket, with one corner folded over slightly.
+    Lay the baby face-up on the blanket with his or her head above the folded corner.
+    Wrap the left corner over the body and tuck it beneath the back of the baby, going under the right arm.
+    Bring the bottom corner up over the baby's feet and pull it toward the head, folding the fabric down if it gets close to the face. Be sure not to wrap too tightly around the hips. Hips and knees should be slightly bent and turned out. Wrapping your baby too tightly may increase the chance of hip dysplasia.
+    Wrap the right corner around the baby, and tuck it under the baby's back on the left side, leaving only the neck and head exposed. To make sure your baby is not wrapped too tight, make sure you can slip a hand between the blanket and your baby's chest, which will allow comfortable breathing. Make sure, however, that the blanket is not so loose that it could become undone.
+    Babies should not be swaddled after they're 2 months old. At this age, some babies can roll over while swaddled, which increases their risk of sudden infant death syndrome (SIDS).
+</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->
