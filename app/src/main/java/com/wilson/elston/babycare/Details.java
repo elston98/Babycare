@@ -58,11 +58,12 @@ public class Details extends AppCompatActivity {
                     @Override
                     public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
 
-                        et.setText(i2+"-"+(i1+1)+"-"+i);
+
                         mday=i2;
                         mmonth=i1+1;
                         myear=i;
                         timePicker();
+                        et.setText(i2+"-"+(i1+1)+"-"+i+"/"+mhour+":"+mmin);
                     }
                 },myear,mmonth,mday);
                 datePickerDialog.show();
@@ -87,7 +88,7 @@ public class Details extends AppCompatActivity {
                 PendingIntent pendingIntent = PendingIntent.getBroadcast(Details.this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
                 alarmManager.set(AlarmManager.RTC_WAKEUP, myAlarmDate.getTimeInMillis(), pendingIntent);
 
-                String date=""+mday+"-"+mmonth+"-"+myear;
+                String date=""+mday+"-"+mmonth+"-"+myear+"/"+mhour+":"+mmin;
                 FirebaseDatabase.getInstance().getReference().child("Vaccination").child(id).push().setValue(new Vaccine(nm,date));
                 Details.super.onBackPressed();
 

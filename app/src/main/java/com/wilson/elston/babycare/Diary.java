@@ -28,12 +28,21 @@ public class Diary extends AppCompatActivity {
                 EditText et1=(EditText) findViewById(R.id.et1);
                 EditText et2=(EditText) findViewById(R.id.et2);
 
-                FirebaseDatabase data=FirebaseDatabase.getInstance();
-                String id=FirebaseAuth.getInstance().getUid();
-                data.getReference().child("Diary").child(id).push().setValue(new note_content(et1.getText().toString(),et2.getText().toString()));
-                //content and the title of the note is saved to the database
-                Toast.makeText(Diary.this,"Your Note is successfully added",Toast.LENGTH_LONG).show();
-                Diary.super.onBackPressed(); //To go the previous activity once the note is saved.
+                String title=et1.getText().toString();
+                String content=et2.getText().toString();
+               if((et1.equals(" ") || et2.equals(" ")) || (et1.length()==0 || et2.length()==0))
+               {
+                   Toast.makeText(Diary.this, "No Content in the Note", Toast.LENGTH_SHORT).show();
+               }
+               else
+               {
+                   FirebaseDatabase data=FirebaseDatabase.getInstance();
+                   String id=FirebaseAuth.getInstance().getUid();
+                   data.getReference().child("Diary").child(id).push().setValue(new note_content(et1.getText().toString(),et2.getText().toString()));
+                   //content and the title of the note is saved to the database
+                   Toast.makeText(Diary.this,"Your Note is successfully added",Toast.LENGTH_LONG).show();
+                   Diary.super.onBackPressed(); //To go the previous activity once the note is saved.
+               }
 
 
             }

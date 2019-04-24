@@ -107,10 +107,10 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
                                                 new AuthUI.IdpConfig.GoogleBuilder().build(),
                                                 new AuthUI.IdpConfig.EmailBuilder().build())
                                         ).setTheme(R.style.AppTheme)
-                                        .setLogo(R.drawable.icon_big)
+                                     //   .setLogo(R.drawable.icon_big)
                                         .setIsSmartLockEnabled(false)
                                         .build(),
-                                RC_SIGN_IN);
+                                RC_SIGN_IN, null);
                     }
                 }
                 //the main if condition checks if the network connectin is switched on

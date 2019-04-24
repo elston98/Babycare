@@ -25,69 +25,122 @@
             android:layout_height="match_parent"
             android:layout_marginTop="20dp">
 
-            <Button
-                android:id="@+id/btn3"
-                android:layout_width="166dp"
-                android:layout_height="100dp"
-
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="44dp"
-                android:background="@drawable/shape"
-                android:fontFamily="monospace"
-                android:text="Bathing Basics"
-                android:textColor="@color/colorPrimary"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn1" />
-
-            <Button
-                android:id="@+id/btn4"
-                android:layout_width="158dp"
-                android:layout_height="100dp"
-
-                android:layout_marginEnd="16dp"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/shape"
-                android:fontFamily="monospace"
-                android:text="Feeding Your Baby"
-                android:textColor="@color/colorPrimary"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/btn3"
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/robotoslab"
+                android:text="Handling a new Born"
+                android:textAlignment="center"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/btn3"
-                app:layout_constraintVertical_bias="1.0" />
-
-            <Button
-                android:id="@+id/btn1"
-                android:layout_width="166dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="120dp"
-
-                android:background="@drawable/shape"
-                android:fontFamily="monospace"
-                android:text="Handling a Newborn"
-                android:textColor="@color/colorPrimary"
-                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@+id/btn2"
-                android:layout_width="158dp"
-                android:layout_height="100dp"
-                android:layout_marginEnd="16dp"
-
-                android:layout_marginTop="16dp"
-                android:background="@drawable/shape"
-                android:fontFamily="monospace"
-                android:text="Bonding and Soothing"
-                android:textColor="@color/colorPrimary"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/btn1"
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/ptserif"
+                android:text="  If you haven't spent a lot of time around newborns, their fragility may be intimidating. Here are a few basics to remember:      Wash your hands (or use a hand sanitizer) before handling your baby. Newborns don't have a strong immune system yet, so they're at risk for infection. Make sure that everyone who handles your baby has clean hands.     Support your baby's head and neck. Cradle the head when carrying your baby and support the head when carrying the baby upright or when you lay your baby down.     Never shake your newborn, whether in play or in frustration. Shaking can cause bleeding in the brain and even death. If you need to wake your infant, don't do it by shaking — instead, tickle your baby's feet or blow gently on a cheek.     Make sure your baby is securely fastened into the carrier, stroller, or car seat. Limit any activity that could be too rough or bouncy.     Remember that your newborn is not ready for rough play, such as being jiggled on the knee or thrown in the air. "
+                android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/btn1"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/robotoslab"
+                android:text="Bonding And Soothing"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/ptserif"
+                android:text="  Bonding, probably one of the most pleasurable parts of infant care, happens during the sensitive time in the first hours and days after birth when parents make a deep connection with their infant. Physical closeness can promote an emotional connection.  For infants, the attachment contributes to their emotional growth, which also affects their development in other areas, such as physical growth. Another way to think of bonding is &quot;falling in love&quot; with your baby. Children thrive from having a parent or other adult in their life who loves them unconditionally.  Begin bonding by cradling your baby and gently stroking him or her in different patterns. Both you and your partner can also take the opportunity to be &quot;skin-to-skin,&quot; holding your newborn against your own skin while feeding or cradling.  Babies, especially premature babies and those with medical problems, may respond to infant massage. Certain types of massage may enhance bonding and help with infant growth and development. Many books and videos cover infant massage — ask your doctor for recommendations. Be careful, however — babies are not as strong as adults, so massage your baby gently.  Babies usually love vocal sounds, such as talking, babbling, singing, and cooing. Your baby will probably also love listening to music. Baby rattles and musical mobiles are other good ways to stimulate your infant's hearing. If your little one is being fussy, try singing, reciting poetry and nursery rhymes, or reading aloud as you sway or rock your baby gently in a chair.  Some babies can be unusually sensitive to touch, light, or sound, and might startle and cry easily, sleep less than expected, or turn their faces away when someone speaks or sings to them. If that's the case with your baby, keep noise and light levels low to moderate."
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="3dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/robotoslab"
+                android:text="Bathing Basics"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/ptserif"
+                android:text="Sponge baths. For a sponge bath, select a safe, flat surface (such as a changing table, floor, or counter) in a warm room. Fill a sink, if nearby, or bowl with warm (not hot!) water. Undress your baby and wrap him or her in a towel. Wipe your infant's eyes with a washcloth (or a clean cotton ball) dampened with water only, starting with one eye and wiping from the inner corner to the outer corner. Use a clean corner of the washcloth or another cotton ball to wash the other eye. Clean your baby's nose and ears with the damp washcloth. Then wet the cloth again and, using a little soap, wash his or her face gently and pat it dry.  Next, using baby shampoo, create a lather and gently wash your baby's head and rinse. Using a wet cloth and soap, gently wash the rest of the baby, paying special attention to creases under the arms, behind the ears, around the neck, and in the genital area. Once you have washed those areas, make sure they are dry and then diaper and dress your baby."
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/robotoslab"
+                android:text="Feeding and Burping the Baby"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/ptserif"
+                android:text="  Whether feeding your newborn by breast or a bottle, you may be stumped as to how often to do so. Generally, it's recommended that babies be fed on demand — whenever they seem hungry. Your baby may cue you by crying, putting fingers in his or her mouth, or making sucking noises.  Some newborns may need to be awakened every few hours to make sure they get enough to eat. Call your baby's doctor if you need to wake your newborn often or if your baby doesn't seem interested in eating or sucking.Try these burping tips:      Hold your baby upright with his or her head on your shoulder. Support your baby's head and back while gently patting the back with your other hand.     Sit your baby on your lap. Support your baby's chest and head with one hand by cradling your baby's chin in the palm of your hand and resting the heel of your hand on your baby's chest (be careful to grip your baby's chin — not throat). Use the other hand to gently pat your baby's back.     Lay your baby face-down on your lap. Support your baby's head, making sure it's higher than his or her chest, and gently pat or rub his or her back. If your baby doesn't burp after a few minutes, change the baby's position and try burping for another few minutes before feeding again. Always burp your baby when feeding time is over, then keep him or her in an upright position for at least 10–15 minutes to avoid spitting up."
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
         </android.support.constraint.ConstraintLayout>
 

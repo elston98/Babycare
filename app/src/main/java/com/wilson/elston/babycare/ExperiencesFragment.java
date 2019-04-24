@@ -83,6 +83,7 @@ public class ExperiencesFragment extends Fragment {
     private DatabaseReference mDatabaseRef;
     private List<Upload> mUploads;
     private StorageTask mUploadTask;
+    int count;
 
 
 
@@ -159,19 +160,24 @@ public class ExperiencesFragment extends Fragment {
                     mUploads.add(upload);
                     mAdapter=new ImageAdapter(getContext(),mUploads);
                     mRecyclerView.setAdapter(mAdapter);
+                    count=mAdapter.getItemCount();
 
                 }//get the image from the database and call the imageadapter to display the image.
 
-                mAdapter.setOnItemClickListener(new ImageAdapter.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(int position) {
-                        Upload item_pos=mUploads.get(position);
-                        Intent intent=new Intent(getContext(),Memories_Display.class);
-                        intent.putExtra("Url",item_pos.getmImageUrl());
-                        startActivity(intent);
+                if(count!=0)
+                {
+                    mAdapter.setOnItemClickListener(new ImageAdapter.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(int position) {
+                            Upload item_pos=mUploads.get(position);
+                            Intent intent=new Intent(getContext(),Memories_Display.class);
+                            intent.putExtra("Url",item_pos.getmImageUrl());
+                            startActivity(intent);
 
-                    }
-                });
+                        }
+                    });
+                }
+
 
             }
 
@@ -181,6 +187,8 @@ public class ExperiencesFragment extends Fragment {
                 Toast.makeText(getContext(),databaseError.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
+
 
         return v;
     }

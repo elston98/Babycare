@@ -48,11 +48,6 @@
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".vaccination"
-            android:label="@string/title_activity_sixth"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme" />
-        <activity
             android:name=".growth_diary"
             android:label="Growth Diary"
             android:parentActivityName=".MainActivity" />
@@ -63,14 +58,12 @@
             android:name=".content"
             android:parentActivityName=".growth_diary" />
         <activity android:name=".Details" />
-        <activity android:name=".ImagesActivity" />
         <activity
             android:name=".Appointment"
             android:label="Appointment" />
         <activity
             android:name=".Memories_Display"
             android:theme="@style/AppTheme" />
-        <activity android:name=".Information"></activity>
     </application>
 
 </manifest>
